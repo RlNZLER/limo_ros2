@@ -1,0 +1,11 @@
+# exploration_params.yaml
+ExploreLite:
+  plugin: "nav2_navfn_planner/NavfnPlanner"
+  costmap_min_x: -10.0
+  costmap_min_y: -10.0
+  costmap_max_x: 10.0
+  costmap_max_y: 10.0
+  shutdown_costmaps: true
+  exploration_plan_transformation: true
+  planner_server_name: "/explore_server"
+  exploration_strategy: "explore_lite/explore_boundary_and_center"

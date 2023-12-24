@@ -33,7 +33,7 @@ def generate_launch_description():
         description='Top-level namespace')
 
     declare_use_sim_time = DeclareLaunchArgument(
-        'use_sim_time', default_value='false',
+        'use_sim_time', default_value='true',
         description='Use simulation (Gazebo) clock if true')
 
     declare_autostart = DeclareLaunchArgument(
@@ -42,7 +42,7 @@ def generate_launch_description():
 
     declare_map = DeclareLaunchArgument(
         'map',
-        default_value=os.path.join(pkg_dir, 'maps', 'simple_map.yaml'),
+        default_value=os.path.join(pkg_dir, 'maps', 'potholes_20mm.yaml'),
         description='Full path to map yaml file to load')
 
     declare_params_file = DeclareLaunchArgument(
