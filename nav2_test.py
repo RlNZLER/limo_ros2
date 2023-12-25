@@ -25,60 +25,64 @@ def main():
     nav = BasicNavigator()
     
     # --- Set initial pose
-    initial_pose = pose_from_xytheta(nav, 0.0, -0.08, 0.0)
+    initial_pose = pose_from_xytheta(nav, 0.0, 0.0, 0.0)
     nav.setInitialPose(initial_pose)
     
     # --- Wait for nav2 
     nav.waitUntilNav2Active()
     
     # --- Send nav2 go
-    # waypoints = [
-    #     pose_from_xytheta(nav, 0.6, -0.08, 0.0),
-    #     pose_from_xytheta(nav, 0.8, -0.08, 0.0),
-    #     pose_from_xytheta(nav, 1.15, -0.19, -1.57),
-    #     pose_from_xytheta(nav, 1.15, -0.40, -1.57),
-    #     pose_from_xytheta(nav, 1.15, -0.60, -1.57),
-    #     pose_from_xytheta(nav, 1.15, -0.79, -1.57),
-    #     pose_from_xytheta(nav, 1.15, -0.92, -2.355),
-    #     pose_from_xytheta(nav, 0.90, -0.925, -3.14),
-    #     pose_from_xytheta(nav, 0.00, -0.925, -3.14),
-    #     pose_from_xytheta(nav, -0.70, -0.925, -3.14),
-    #     pose_from_xytheta(nav, -0.90, -0.925, -3.14),
-    #     pose_from_xytheta(nav, -1.13, -0.88, -3.925),
-    #     pose_from_xytheta(nav, -1.13, -0.80, -4.71),
-    #     pose_from_xytheta(nav, -1.13, -0.60, -4.71),
-    #     pose_from_xytheta(nav, -1.13, -0.40, -4.71),
-    #     pose_from_xytheta(nav, -1.13, -0.20, -4.71),
-    #     pose_from_xytheta(nav, -1.00, -0.10, -5.495),
-    #     pose_from_xytheta(nav, -0.90, -0.08, 0.0),
-    #     pose_from_xytheta(nav, 0.0, 0.0, 0.0)
-    #     ]
-
     waypoints = [
-        pose_from_xytheta(nav, 0.0, 0.08, 3.14),
+        pose_from_xytheta(nav, 0.0, 0.08, 3.14,),
         pose_from_xytheta(nav, -0.30, -0.10, 3.14),
         pose_from_xytheta(nav, -0.60, -0.10, 3.14),
         pose_from_xytheta(nav, -0.80, -0.10, 3.14),
         pose_from_xytheta(nav, -1.00, -0.10, 3.14),
         pose_from_xytheta(nav, -1.35, -0.10, 3.14),
-        pose_from_xytheta(nav, -1.35, -0.10, 4.17),
-        pose_from_xytheta(nav, -1.35, -0.10, -0.10),
-        
-        # pose_from_xytheta(nav, 1.15, -0.19, -1.57),
-        # pose_from_xytheta(nav, 1.15, -0.40, -1.57),
-        # pose_from_xytheta(nav, 1.15, -0.60, -1.57),
-        # pose_from_xytheta(nav, 1.15, -0.79, -1.57),
-        # pose_from_xytheta(nav, 0.90, -0.925, -3.14),
-        # pose_from_xytheta(nav, 0.00, -0.925, -3.14),
-        # pose_from_xytheta(nav, -0.70, -0.925, -3.14),
-        # pose_from_xytheta(nav, -0.90, -0.925, -3.14),
-        # pose_from_xytheta(nav, -1.13, -0.88, -4.71),
-        # pose_from_xytheta(nav, -1.13, -0.60, -4.71),
-        # pose_from_xytheta(nav, -1.13, -0.40, -4.71),
-        # pose_from_xytheta(nav, -1.13, -0.20, -4.71),
-        # pose_from_xytheta(nav, -1.00, -0.10, -5.495),
-        # pose_from_xytheta(nav, -0.90, -0.08, 0.0),
-        # pose_from_xytheta(nav, 0.0, 0.0, 0.0)
+        pose_from_xytheta(nav, -1.35, -0.10, 1.57),
+        pose_from_xytheta(nav, -1.35, -0.10, -0.25), # At my origin (point A).
+        pose_from_xytheta(nav, -1.00, -0.10, -0.25), # From point A to point B.
+        pose_from_xytheta(nav, -0.80, -0.10, 0.00),
+        pose_from_xytheta(nav, -0.40, -0.10, 0.00),
+        pose_from_xytheta(nav, 0.00, -0.10, 0.00),
+        pose_from_xytheta(nav, 0.40, -0.10, 0.00),
+        pose_from_xytheta(nav, 0.80, -0.12, 0.00),
+        pose_from_xytheta(nav, 1.35, -0.12, 0.00),  # At point B.
+        pose_from_xytheta(nav, 1.35, -0.12, -1.60), # From point B to point C.
+        pose_from_xytheta(nav, 1.12, -0.40, -1.57),
+        pose_from_xytheta(nav, 1.12, -0.80, -1.57),
+        pose_from_xytheta(nav, 1.12, -1.00, -1.57), # Ar point C.
+        pose_from_xytheta(nav, 1.12, -1.00, -3.14), # From point C to point D.
+        pose_from_xytheta(nav, 1.00, -1.00, -3.14),
+        pose_from_xytheta(nav, 0.80, -1.00, -3.14),
+        pose_from_xytheta(nav, 0.40, -1.00, -3.14),
+        pose_from_xytheta(nav, 0.00, -1.00, -3.14),
+        pose_from_xytheta(nav, -0.40, -1.00, -3.14),
+        pose_from_xytheta(nav, -0.80, -1.00, -3.14),
+        pose_from_xytheta(nav, -1.05, -1.00, -3.14),
+        pose_from_xytheta(nav, -1.05, -1.00, -3.14), # At point D.
+        pose_from_xytheta(nav, -1.05, -1.00, -4.20), # From point D to point A.
+        pose_from_xytheta(nav, -1.05, -0.50, -4.17),
+        pose_from_xytheta(nav, -1.05, -0.00, -4.17),
+        pose_from_xytheta(nav, -1.05, -0.00, 0.00),  # At point A.
+        pose_from_xytheta(nav, -0.90, -0.00, 0.00),  # From point A to point E.
+        pose_from_xytheta(nav, -0.60, -0.00, 0.00),
+        pose_from_xytheta(nav, -0.20, -0.00, 0.00),  # At point E.
+        pose_from_xytheta(nav, -0.20, -0.00, -1.57), # From point E to point F.
+        pose_from_xytheta(nav, -0.20, -0.20, -1.57),
+        pose_from_xytheta(nav, -0.20, -0.40, -1.57),
+        pose_from_xytheta(nav, -0.20, -0.60, -1.57),
+        pose_from_xytheta(nav, -0.20, -0.80, -1.57),
+        pose_from_xytheta(nav, -0.20, -1.00, -1.57), # At point F.
+        pose_from_xytheta(nav, -0.20, -1.00, -3.14), # From point F to point D.
+        pose_from_xytheta(nav, -0.40, -1.00, -3.14),
+        pose_from_xytheta(nav, -0.80, -1.00, -3.14),
+        pose_from_xytheta(nav, -1.05, -1.00, -3.14),
+        pose_from_xytheta(nav, -1.05, -1.00, -3.14), # At point D.
+        pose_from_xytheta(nav, -1.05, -1.00, -4.20), # From point D to point A.
+        pose_from_xytheta(nav, -1.05, -0.50, -4.17),
+        pose_from_xytheta(nav, -1.05, -0.00, -4.17),
+        pose_from_xytheta(nav, -1.05, -0.00, 0.00),  # At point A.
         ]
 
     # --- Go to one pose
