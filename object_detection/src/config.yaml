@@ -1,7 +1,0 @@
-path: /home/rinzler/ros2_projects/limo_ros2/object_detection/dataset
-train: images/train
-val: images/train
-
-names:
-  0: Simple_pothole
-  1: Real_pothole

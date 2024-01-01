@@ -1,5 +1,0 @@
-data/obj_train_data/Screenshot from 2023-12-26 22-44-01.png
-data/obj_train_data/Screenshot from 2023-12-27 01-04-18.png
-data/obj_train_data/Screenshot from 2023-12-27 01-04-46.png
-data/obj_train_data/Screenshot from 2023-12-27 01-05-03.png
-data/obj_train_data/Screenshot from 2023-12-27 01-05-28.png
