@@ -1,0 +1,7 @@
+path: /home/rinzler/Downloads/simple_pothole/data
+train: images/train
+val: images/train
+
+names:
+  0: Simple_pothole
+  1: Real_pothole
