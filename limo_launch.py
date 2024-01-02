@@ -16,12 +16,17 @@ def main():
 
     # Command 4: launch Gazebo
     run_command_in_terminal('ros2 launch limo_gazebosim limo_gazebo_diff.launch.py')
-
-    # Add a delay to make sure the Gazebo launch has started before launching the navigation
-    time.sleep(15)  # Adjust the delay as needed
+    time.sleep(15)
 
     # Command 5: launch navigation
     run_command_in_terminal('ros2 launch limo_navigation limo_navigation.launch.py')
+    time.sleep(10)
+    
+    # Command 6: run waypoint following
+    run_command_in_terminal('ros2 run waypoint_follower waypoint_follower')
+    
+    # Command 7: run object detection
+    run_command_in_terminal('ros2 run object_detection object_detection')
 
 if __name__ == "__main__":
     main()
