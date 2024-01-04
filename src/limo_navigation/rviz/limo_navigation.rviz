@@ -9,7 +9,6 @@ Panels:
         - /TF1/Frames1
         - /Map1/Topic1
         - /LaserScan1/Topic1
-        - /Path1
       Splitter Ratio: 0.5948103666305542
     Tree Height: 926
   - Class: rviz_common/Selection

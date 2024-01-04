@@ -21,12 +21,16 @@ def main():
     # Command 5: launch navigation
     run_command_in_terminal('ros2 launch limo_navigation limo_navigation.launch.py')
     time.sleep(10)
-    # # Command 7: run object detection
+    
+    # Command 8: run report generator
+    run_command_in_terminal('ros2 run report_generator report_generator')
+    
+    # Command 6: run object detection
     run_command_in_terminal('ros2 run object_detection object_detection')
     
-    # # Command 6: run waypoint following
+    # Command 7: run waypoint following
     run_command_in_terminal('ros2 run waypoint_follower waypoint_follower')
+    time.sleep(30)
     
-
 if __name__ == "__main__":
     main()

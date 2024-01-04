@@ -1,9 +1,7 @@
-import sys
-
 # Python libs
 import rclpy
-from rclpy.node import Node
 from rclpy import qos
+from rclpy.node import Node
 
 # OpenCV
 import cv2
@@ -15,7 +13,7 @@ from tf2_ros import Buffer, TransformListener
 # ROS Messages
 from std_msgs.msg import String
 from sensor_msgs.msg import Image, CameraInfo
-from geometry_msgs.msg import PoseStamped
+from geometry_msgs.msg import PoseStamped, Pose
 from cv_bridge import CvBridge, CvBridgeError
 from tf2_geometry_msgs import do_transform_pose
 
@@ -29,7 +27,6 @@ class ObjectDetector(Node):
     camera_model = None
     image_depth_ros = None
 
-    visualisation = True
     # aspect ration between color and depth cameras
     # calculated as (color_horizontal_FOV/color_width) / (depth_horizontal_FOV/depth_width) from the dabai camera parameters
     color2depth_aspect = 1.0 # for a simulated camera
@@ -37,31 +34,22 @@ class ObjectDetector(Node):
     def __init__(self):    
         super().__init__('object_detection')
         self.bridge = CvBridge()
-
+        self.stop_detection_flag = False
+        self.start_detection_flag = False
+        
         self.waypoint_follower_status_sub = self.create_subscription(String, '/waypoint_follower/status', self.waypoint_follower_status_callback, 10)
         self.task_completed_sub = self.create_subscription(String, '/waypoint_follower/status', self.task_completed_callback, 10)
-        self.stop_detection_flag = False
-
-        self.camera_info_sub = self.create_subscription(CameraInfo, '/limo/depth_camera_link/camera_info',
-                                                    self.camera_info_callback, 
-                                                    qos_profile=qos.qos_profile_sensor_data)
-            
+        self.camera_info_sub = self.create_subscription(CameraInfo, '/limo/depth_camera_link/camera_info',self.camera_info_callback, qos_profile=qos.qos_profile_sensor_data)
+        self.image_color_sub = self.create_subscription(Image, '/limo/depth_camera_link/image_raw', self.image_color_callback, qos_profile=qos.qos_profile_sensor_data)
+        self.image_depth_sub = self.create_subscription(Image, '/limo/depth_camera_link/depth/image_raw', self.image_depth_callback, qos_profile=qos.qos_profile_sensor_data)
         self.object_detection_status_pub = self.create_publisher(String, '/object_detection/status', 10)
         self.object_location_pub = self.create_publisher(PoseStamped, '/object_detection/location', 10)
-
-        self.image_sub = self.create_subscription(Image, '/limo/depth_camera_link/image_raw', 
-                                                    self.image_color_callback, qos_profile=qos.qos_profile_sensor_data)
-            
-        self.image_sub = self.create_subscription(Image, '/limo/depth_camera_link/depth/image_raw', 
-                                                    self.image_depth_callback, qos_profile=qos.qos_profile_sensor_data)
-            
         self.image_with_boxes_pub = self.create_publisher(Image, '/object_detection/yolo_detected_image', 10)
         
         self.tf_buffer = Buffer()
         self.tf_listener = TransformListener(self.tf_buffer, self)
         
-        self.start_detection_flag = False
-
+        
     def waypoint_follower_status_callback(self, msg):
         if msg.data == "Reached my origin!":
             self.start_detection_flag = True
@@ -84,6 +72,22 @@ class ObjectDetector(Node):
         except Exception as e:
             self.get_logger().warning(f"Failed to lookup transform: {str(e)}")
             return None
+    def calculate_map_coordinates(self, odom_coords):
+        try:
+            transform = self.get_tf_transform('map', 'odom')
+            if transform:
+                p_odom = Pose()
+                p_odom.position.x = odom_coords.x
+                p_odom.position.y = odom_coords.y
+                p_odom.position.z = odom_coords.z
+                p_map = do_transform_pose(p_odom, transform)
+                return p_map.position.x, p_map.position.y
+            else:
+                self.get_logger().warning("Transform from 'odom' to 'map' not available.")
+                return None, None
+        except Exception as e:
+            self.get_logger().warning(f"Error calculating map coordinates: {str(e)}")
+            return None, None       
         
     def calculate_pothole_info(self, x_min, y_min, x_max, y_max, depth_image, image_color):
         # Calculate centroid of the bounding box
@@ -116,6 +120,8 @@ class ObjectDetector(Node):
         p_camera = do_transform_pose(object_location.pose, transform)
         
         odom_coords = p_camera.position
+        # Calculate map coordinates
+        x_map, y_map = self.calculate_map_coordinates(odom_coords)
         
         # publish so we can see that in rviz
         self.object_location_pub.publish(object_location)   
@@ -125,6 +131,8 @@ class ObjectDetector(Node):
             "centroid_y": centroid_y,
             "depth_value": depth_value,
             "odom_coords": odom_coords,
+            "x_map": x_map,
+            "y_map": y_map,
             "box_size": (x_max - x_min) * (y_max - y_min),
         }
         
@@ -138,6 +146,7 @@ class ObjectDetector(Node):
                 break
             for pred in result.boxes.xyxy:
                 x_min, y_min, x_max, y_max = map(int, pred[:4])
+                
                 # Draw bounding box on the image
                 cv2.rectangle(image_color, (x_min, y_min), (x_max, y_max), (0, 255, 0), 2)
 
@@ -192,6 +201,18 @@ class ObjectDetector(Node):
         # Process and print pothole information
         self.process_detected_potholes(results, image_depth, image_color)
 
+    def save_detected_potholes(self):
+        file_path = "src/object_detection/object_detection/test/detected_potholes.txt"
+        count = 1
+        try:
+            with open(file_path, 'w') as file:
+                for pothole in self.detected_potholes:
+                    file.write(f"{pothole}\n")
+                    count += 1
+        except Exception as e:
+            print(f"Error writing to file: {e}")
+        
+    
 def main(args=None):
     # --- Init
     rclpy.init(args=args)
@@ -200,15 +221,7 @@ def main(args=None):
     while rclpy.ok() and not object_detection.stop_detection_flag:
         rclpy.spin_once(object_detection, timeout_sec=0.1)
     
-    file_path = "src/object_detection/object_detection/test/detected_potholes.txt"
-    count = 1
-    try:
-        with open(file_path, 'w') as file:
-            for pothole in object_detection.detected_potholes:
-                file.write(f"Pothole #{count}\n{pothole}\n")
-                count += 1
-    except Exception as e:
-        print(f"Error writing to file: {e}")
+    object_detection.save_detected_potholes()
         
     object_detection.publish_status("Object detection node stopped!")
     object_detection.destroy_node()
