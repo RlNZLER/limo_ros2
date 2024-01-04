@@ -26,7 +26,6 @@ class ObjectDetector(Node):
     detected_potholes = []
     camera_model = None
     image_depth_ros = None
-    waypoint_follower_status = True
 
     visualisation = True
     # aspect ration between color and depth cameras
@@ -38,36 +37,43 @@ class ObjectDetector(Node):
         self.bridge = CvBridge()
 
         self.waypoint_follower_status_sub = self.create_subscription(String, '/waypoint_follower/status', self.waypoint_follower_status_callback, 10)
+        self.task_completed_sub = self.create_subscription(String, '/waypoint_follower/status', self.task_completed_callback, 10)
+        self.stop_detection_flag = False
 
-        if self.waypoint_follower_status:
-            self.camera_info_sub = self.create_subscription(CameraInfo, '/limo/depth_camera_link/camera_info',
+        self.camera_info_sub = self.create_subscription(CameraInfo, '/limo/depth_camera_link/camera_info',
                                                     self.camera_info_callback, 
                                                     qos_profile=qos.qos_profile_sensor_data)
             
-            self.object_detection_status_pub = self.create_publisher(String, '/object_detection/status', 10)
-            self.object_location_pub = self.create_publisher(PoseStamped, '/object_detection/location', 10)
+        self.object_detection_status_pub = self.create_publisher(String, '/object_detection/status', 10)
+        self.object_location_pub = self.create_publisher(PoseStamped, '/object_detection/location', 10)
 
-            self.image_sub = self.create_subscription(Image, '/limo/depth_camera_link/image_raw', 
+        self.image_sub = self.create_subscription(Image, '/limo/depth_camera_link/image_raw', 
                                                     self.image_color_callback, qos_profile=qos.qos_profile_sensor_data)
             
-            self.image_sub = self.create_subscription(Image, '/limo/depth_camera_link/depth/image_raw', 
+        self.image_sub = self.create_subscription(Image, '/limo/depth_camera_link/depth/image_raw', 
                                                     self.image_depth_callback, qos_profile=qos.qos_profile_sensor_data)
             
-            self.image_with_boxes_pub = self.create_publisher(Image, '/object_detection/yolo_detected_image', 10)
+        self.image_with_boxes_pub = self.create_publisher(Image, '/object_detection/yolo_detected_image', 10)
         
-            self.tf_buffer = Buffer()
-            self.tf_listener = TransformListener(self.tf_buffer, self)
+        self.tf_buffer = Buffer()
+        self.tf_listener = TransformListener(self.tf_buffer, self)
+        
+        self.start_detection_flag = False
 
     def waypoint_follower_status_callback(self, msg):
-        self.get_logger().info(f"Received waypoint follower status: {msg.data}")
         if msg.data == "Reached my origin!":
-            self.waypoint_follower_status = True
-            self.get_logger().info("Waypoint follower status set to True.")
+            self.start_detection_flag = True
+            
+    def task_completed_callback(self, msg):
+        if msg.data == "Task Completed!":
+            self.stop_detection_flag = True
+            self.publish_status("Stopping object detection...")
                    
     def publish_status(self, message):
         msg = String()
         msg.data = message
         self.object_detection_status_pub.publish(msg)
+        self.get_logger().info(msg.data)
 
     def get_tf_transform(self, target_frame, source_frame):
         try:
@@ -121,7 +127,13 @@ class ObjectDetector(Node):
         }
         
     def process_detected_potholes(self, results, image_depth, image_color):
+        if not self.start_detection_flag:
+            return
+        if not self.stop_detection_flag:
+            self.publish_status("Object detection running!")
         for pothole_num, result in enumerate(results):
+            if self.stop_detection_flag:
+                break
             for pred in result.boxes.xyxy:
                 x_min, y_min, x_max, y_max = map(int, pred[:4])
                 # Draw bounding box on the image
@@ -143,6 +155,8 @@ class ObjectDetector(Node):
 
                 # Increment the pothole counter
                 self.pothole_counter += 1
+        if self.stop_detection_flag:
+            self.publish_status("Object detection stopped!")
                 
     def camera_info_callback(self, data):
         if not self.camera_model:
@@ -167,7 +181,7 @@ class ObjectDetector(Node):
         except CvBridgeError as e:
             print(e)
 
-        self.publish_status("Object detection started!")
+        # self.publish_status("Object detection started!")
         # Perform YOLO object detection
         model = YOLO("src/object_detection/object_detection/runs/detect/train2/weights/best.pt")
         results = model.predict(source=image_color, save_txt=True, save=False, stream=True)

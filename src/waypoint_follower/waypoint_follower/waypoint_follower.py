@@ -9,22 +9,24 @@ from tf_transformations import quaternion_from_euler
 SUCCEEDED = TaskResult.SUCCEEDED
 
 class WaypointStatus(Node):
-    object_detection = True
     
     def __init__(self):
         super().__init__("waypoint_status")
         
-        self.pub_ = self.create_publisher(String, '/waypoint_follower/status', 10)
-        self.sub_ = self.create_subscription(String, '/object_detection/status', self.waypoint_follower_callback, 10)
+        self.waypoint_follower_status_pub = self.create_publisher(String, '/waypoint_follower/status', 10)
+        self.object_detection_status_sub = self.create_subscription(String, '/object_detection/status', self.waypoint_follower_callback, 10)
+        self.start_waypoint_following = False
+        
         
     def publish_status(self, message):
         msg = String()
         msg.data = message
-        self.pub_.publish(msg)
+        self.waypoint_follower_status_pub.publish(msg)
+        self.get_logger().info(msg.data)
         
     def waypoint_follower_callback(self, msg):
-        if msg.data == "Object detection started!":
-            self.object_detection = True
+        if msg.data == "Object detection running!":
+            self.start_waypoint_following = True
         
 def pose_from_xytheta(navigator: BasicNavigator, position_x, position_y, orientation_z):
     q_x, q_y, q_z, q_w = quaternion_from_euler(0.0, 0.0, orientation_z)
@@ -40,9 +42,7 @@ def pose_from_xytheta(navigator: BasicNavigator, position_x, position_y, orienta
     pose.pose.orientation.w = q_w
     return pose
 
-def follow_waypoints(status):
-    nav = BasicNavigator()
-    
+def got_to_my_origin(status, nav):
     # --- Set initial pose
     initial_pose = pose_from_xytheta(nav, 0.0, 0.0, 0.0)
     nav.setInitialPose(initial_pose)
@@ -71,10 +71,12 @@ def follow_waypoints(status):
     result = nav.getResult()
     if result == SUCCEEDED:
         status.publish_status("Reached my origin!")
+        return True
     else:
         status.publish_status("Task Failed!")
-        return
-        
+        return False
+
+def follow_waypoints(status, nav):
     # --- Send nav2 go
     waypoints = [
         pose_from_xytheta(nav, -1.00, -0.10, -0.25), # From point A to point B.
@@ -124,25 +126,41 @@ def follow_waypoints(status):
     # --- Follow waypoints 
     status.publish_status("Waiting for object detection to start!")
     
-    if status.object_detection:
-        nav.followWaypoints(waypoints)
-        while not nav.isTaskComplete():
-            feedback = nav.getFeedback()
+    wait = True
 
-        result = nav.getResult()
-        if result == SUCCEEDED:
-            status.publish_status("Task Completed!")
-        else:
-            status.publish_status("Task Failed!")
-            return
+    while wait and rclpy.ok():
+        rclpy.spin_once(status)
+        if status.start_waypoint_following:
+            wait = False
+        
+    # status.publish_status("Object detection started!")
+        
+    nav.followWaypoints(waypoints)
+    while not nav.isTaskComplete():
+        feedback = nav.getFeedback()
+
+    result = nav.getResult()
+    if result == SUCCEEDED:
+        status.publish_status("Task Completed!")
+        return True
+    else:
+        status.publish_status("Task Failed!")
+        return False
     
 def main():
     # --- Init
     rclpy.init()
+    nav = BasicNavigator()
     status = WaypointStatus()
+    task_completed = False 
     
-    follow_waypoints(status)
-    
+    reached_my_origin = got_to_my_origin(status, nav)
+    if reached_my_origin:
+        task_completed = follow_waypoints(status, nav)
+        print ("Task Completed!")
+    elif not reached_my_origin or not task_completed:
+        print ("Task failed!")
+        
     rclpy.spin(status)
     status.destroy_node()
     
