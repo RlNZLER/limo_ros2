@@ -17,7 +17,6 @@ class WaypointStatus(Node):
         self.object_detection_status_sub = self.create_subscription(String, '/object_detection/status', self.waypoint_follower_callback, 10)
         self.start_waypoint_following = False
         
-        
     def publish_status(self, message):
         msg = String()
         msg.data = message
@@ -160,10 +159,10 @@ def main():
         print ("Task Completed!")
     elif not reached_my_origin or not task_completed:
         print ("Task failed!")
-        
+    
     rclpy.spin(status)
     status.destroy_node()
-    
+
     # --- Shut down
     rclpy.shutdown()
 

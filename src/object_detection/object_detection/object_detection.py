@@ -1,3 +1,5 @@
+import sys
+
 # Python libs
 import rclpy
 from rclpy.node import Node
@@ -150,11 +152,12 @@ class ObjectDetector(Node):
                 pothole_info = self.calculate_pothole_info(x_min, y_min, x_max, y_max, image_depth, image_color)
                 self.detected_potholes.append(pothole_info)
 
-                # Print pothole information
-                print(f"Pothole {self.pothole_counter + 1} - Odom Coordinates: {pothole_info['odom_coords']}, Size: {pothole_info['box_size']}")
-
                 # Increment the pothole counter
                 self.pothole_counter += 1
+                
+                # Print pothole information
+                print(f"Pothole {self.pothole_counter} - Odom Coordinates: {pothole_info['odom_coords']}, Size: {pothole_info['box_size']}")
+
         if self.stop_detection_flag:
             self.publish_status("Object detection stopped!")
                 
@@ -194,9 +197,20 @@ def main(args=None):
     rclpy.init(args=args)
     object_detection = ObjectDetector()
     
-    rclpy.spin(object_detection)
-    object_detection.publish_status("Object detection stopped!")
+    while rclpy.ok() and not object_detection.stop_detection_flag:
+        rclpy.spin_once(object_detection, timeout_sec=0.1)
     
+    file_path = "src/object_detection/object_detection/test/detected_potholes.txt"
+    count = 1
+    try:
+        with open(file_path, 'w') as file:
+            for pothole in object_detection.detected_potholes:
+                file.write(f"Pothole #{count}\n{pothole}\n")
+                count += 1
+    except Exception as e:
+        print(f"Error writing to file: {e}")
+        
+    object_detection.publish_status("Object detection node stopped!")
     object_detection.destroy_node()
     
     # --- Shut down

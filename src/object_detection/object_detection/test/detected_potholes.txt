@@ -1,0 +1,576 @@
+Pothole #1
+{'centroid_x': 516.5, 'centroid_y': 451.0, 'depth_value': 0.37127295, 'odom_coords': geometry_msgs.msg.Point(x=-0.21984016217699195, y=-0.19627296966275867, z=1.2129775061511296), 'box_size': 7018}
+Pothole #2
+{'centroid_x': 320.0, 'centroid_y': 322.5, 'depth_value': 0.951813, 'odom_coords': geometry_msgs.msg.Point(x=-0.21460963973413683, y=-0.7768112561951841, z=1.0497885918408962), 'box_size': 672}
+Pothole #3
+{'centroid_x': 296.5, 'centroid_y': 323.5, 'depth_value': 0.94003534, 'odom_coords': geometry_msgs.msg.Point(x=-0.21304101506449108, y=-0.7650330905222349, z=1.0005856416136092), 'box_size': 589}
+Pothole #4
+{'centroid_x': 489.0, 'centroid_y': 448.5, 'depth_value': 0.37652126, 'odom_coords': geometry_msgs.msg.Point(x=-0.21956642805197019, y=-0.20152104663612377, z=1.1921888486898782), 'box_size': 6426}
+Pothole #5
+{'centroid_x': 621.0, 'centroid_y': 327.0, 'depth_value': 0.89707494, 'odom_coords': geometry_msgs.msg.Point(x=-0.23207837796770248, y=-0.7220796861858146, z=1.651479718451411), 'box_size': 816}
+Pothole #6
+{'centroid_x': 273.5, 'centroid_y': 324.0, 'depth_value': 0.9290519, 'odom_coords': geometry_msgs.msg.Point(x=-0.207124178689049, y=-0.7540651892998838, z=0.9543223386830363), 'box_size': 660}
+Pothole #7
+{'centroid_x': 608.5, 'centroid_y': 326.5, 'depth_value': 0.9074831, 'odom_coords': geometry_msgs.msg.Point(x=-0.22682569222279944, y=-0.7325128784554604, z=1.6339387541536774), 'box_size': 667}
+Pothole #8
+{'centroid_x': 465.5, 'centroid_y': 446.5, 'depth_value': 0.38018197, 'odom_coords': geometry_msgs.msg.Point(x=-0.21481391166100403, y=-0.20520059799852014, z=1.1744176341428134), 'box_size': 6767}
+Pothole #9
+{'centroid_x': 603.5, 'centroid_y': 326.0, 'depth_value': 0.9074844, 'odom_coords': geometry_msgs.msg.Point(x=-0.2255373653304635, y=-0.7325139571258759, z=1.6238570973030035), 'box_size': 840}
+Pothole #10
+{'centroid_x': 577.0, 'centroid_y': 284.0, 'depth_value': 1.7636875, 'odom_coords': geometry_msgs.msg.Point(x=-0.23557374244612722, y=-1.5887276244575828, z=2.059651825564237), 'box_size': 560}
+Pothole #11
+{'centroid_x': 277.5, 'centroid_y': 323.5, 'depth_value': 0.9402068, 'odom_coords': geometry_msgs.msg.Point(x=-0.22698686196911266, y=-0.7651905086148605, z=0.8816269460129768), 'box_size': 551}
+Pothole #12
+{'centroid_x': 465.5, 'centroid_y': 446.5, 'depth_value': 0.38019258, 'odom_coords': geometry_msgs.msg.Point(x=-0.23759384363806357, y=-0.2051739801881716, z=1.09435680517052), 'box_size': 6633}
+Pothole #13
+{'centroid_x': 609.0, 'centroid_y': 326.5, 'depth_value': 0.90753484, 'odom_coords': geometry_msgs.msg.Point(x=-0.25849972975602387, y=-0.7325112226844948, z=1.5546201152727503), 'box_size': 690}
+Pothole #14
+{'centroid_x': 603.5, 'centroid_y': 326.0, 'depth_value': 0.90753746, 'odom_coords': geometry_msgs.msg.Point(x=-0.2569699622869155, y=-0.7325139232658262, z=1.5435550909135791), 'box_size': 840}
+Pothole #15
+{'centroid_x': 278.0, 'centroid_y': 323.5, 'depth_value': 0.9402282, 'odom_coords': geometry_msgs.msg.Point(x=-0.20526444493954507, y=-0.7651937521114176, z=0.7328820522706934), 'box_size': 532}
+Pothole #16
+{'centroid_x': 466.0, 'centroid_y': 447.0, 'depth_value': 0.37835044, 'odom_coords': geometry_msgs.msg.Point(x=-0.2094903188098076, y=-0.20330948951862568, z=0.9446024281807937), 'box_size': 6468}
+Pothole #17
+{'centroid_x': 609.5, 'centroid_y': 326.5, 'depth_value': 0.90752304, 'odom_coords': geometry_msgs.msg.Point(x=-0.21812265035455078, y=-0.732467977351536, z=1.4064472579094152), 'box_size': 667}
+Pothole #18
+{'centroid_x': 603.5, 'centroid_y': 326.0, 'depth_value': 0.90752363, 'odom_coords': geometry_msgs.msg.Point(x=-0.2168801583921916, y=-0.7324689658714894, z=1.3943317286190644), 'box_size': 840}
+Pothole #19
+{'centroid_x': 578.0, 'centroid_y': 284.0, 'depth_value': 1.7638791, 'odom_coords': geometry_msgs.msg.Point(x=-0.22335786144010458, y=-1.5888109913139732, z=1.8342576509287007), 'box_size': 560}
+Pothole #20
+{'centroid_x': 278.5, 'centroid_y': 323.5, 'depth_value': 0.9404236, 'odom_coords': geometry_msgs.msg.Point(x=-0.20532021566832898, y=-0.7653891039023781, z=0.7339107897553117), 'box_size': 551}
+Pothole #21
+{'centroid_x': 466.0, 'centroid_y': 447.0, 'depth_value': 0.37841064, 'odom_coords': geometry_msgs.msg.Point(x=-0.2095183973308293, y=-0.20336968902160882, z=0.9446214228118153), 'box_size': 6468}
+Pothole #22
+{'centroid_x': 609.0, 'centroid_y': 326.5, 'depth_value': 0.9078306, 'odom_coords': geometry_msgs.msg.Point(x=-0.2181660955859692, y=-0.732775560923679, z=1.4056326266384986), 'box_size': 690}
+Pothole #23
+{'centroid_x': 603.5, 'centroid_y': 326.0, 'depth_value': 0.9078302, 'odom_coords': geometry_msgs.msg.Point(x=-0.21694226271397454, y=-0.7327755054029857, z=1.3945239637246263), 'box_size': 840}
+Pothole #24
+{'centroid_x': 264.0, 'centroid_y': 330.5, 'depth_value': 0.86774766, 'odom_coords': geometry_msgs.msg.Point(x=-0.22218808308216828, y=-0.6927402486868904, z=0.3745211044666663), 'box_size': 782}
+Pothole #25
+{'centroid_x': 619.0, 'centroid_y': 332.5, 'depth_value': 0.84898794, 'odom_coords': geometry_msgs.msg.Point(x=-0.2499805046366925, y=-0.6739787733412071, z=1.0481200933852524), 'box_size': 1080}
+Pothole #26
+{'centroid_x': 297.0, 'centroid_y': 303.0, 'depth_value': 1.2368009, 'odom_coords': geometry_msgs.msg.Point(x=-0.22223004440277436, y=-1.0617933029530011, z=0.4190561220633227), 'box_size': 720}
+Pothole #27
+{'centroid_x': 622.5, 'centroid_y': 333.0, 'depth_value': 0.83990616, 'odom_coords': geometry_msgs.msg.Point(x=-0.2490763542968922, y=-0.6648969522441561, z=1.0486676912529584), 'box_size': 726}
+Pothole #28
+{'centroid_x': 611.5, 'centroid_y': 331.0, 'depth_value': 0.85826755, 'odom_coords': geometry_msgs.msg.Point(x=-0.24867755773500755, y=-0.683258362696958, z=1.039992933282121), 'box_size': 1148}
+Pothole #29
+{'centroid_x': 456.0, 'centroid_y': 398.0, 'depth_value': 0.49541813, 'odom_coords': geometry_msgs.msg.Point(x=-0.24881604030232898, y=-0.32039010665438894, z=0.34953274667759415), 'box_size': 2432}
+Pothole #30
+{'centroid_x': 262.5, 'centroid_y': 357.0, 'depth_value': 0.66826, 'odom_coords': geometry_msgs.msg.Point(x=-0.23116358013064758, y=-0.49324557179909984, z=0.11417519615037011), 'box_size': 910}
+Pothole #31
+{'centroid_x': 296.5, 'centroid_y': 315.0, 'depth_value': 1.0400758, 'odom_coords': geometry_msgs.msg.Point(x=-0.23258626503532137, y=-0.8650595683681628, z=0.14492949320354187), 'box_size': 1312}
+Pothole #32
+{'centroid_x': 465.0, 'centroid_y': 398.5, 'depth_value': 0.49542004, 'odom_coords': geometry_msgs.msg.Point(x=-0.2500940508862619, y=-0.3203914582804082, z=0.35940507076058736), 'box_size': 1776}
+Pothole #33
+{'centroid_x': 261.0, 'centroid_y': 309.0, 'depth_value': 1.1298512, 'odom_coords': geometry_msgs.msg.Point(x=-0.22549413857618666, y=-0.9548404454626127, z=0.05099325951026712), 'box_size': 864}
+Pothole #34
+{'centroid_x': 285.5, 'centroid_y': 313.5, 'depth_value': 1.0683742, 'odom_coords': geometry_msgs.msg.Point(x=-0.23168372106825444, y=-0.8933595839855342, z=0.11721322723300814), 'box_size': 1353}
+Pothole #35
+{'centroid_x': 439.0, 'centroid_y': 397.0, 'depth_value': 0.49856177, 'odom_coords': geometry_msgs.msg.Point(x=-0.24749650487667718, y=-0.3235347810344254, z=0.3316387261968168), 'box_size': 2508}
+Pothole #36
+{'centroid_x': 252.0, 'centroid_y': 356.5, 'depth_value': 0.6739933, 'odom_coords': geometry_msgs.msg.Point(x=-0.230691621211948, y=-0.4989798612622885, z=0.09764988178841665), 'box_size': 1160}
+Pothole #37
+{'centroid_x': 267.0, 'centroid_y': 309.5, 'depth_value': 1.1298561, 'odom_coords': geometry_msgs.msg.Point(x=-0.22785546957443673, y=-0.9548445021067786, z=0.06597096872727362), 'box_size': 1134}
+Pothole #38
+{'centroid_x': 216.5, 'centroid_y': 398.5, 'depth_value': 0.49535167, 'odom_coords': geometry_msgs.msg.Point(x=-0.23292548000337843, y=-0.32035160661031603, z=0.0014904805708642055), 'box_size': 2535}
+Pothole #39
+{'centroid_x': 306.0, 'centroid_y': 292.5, 'depth_value': 1.4954545, 'odom_coords': geometry_msgs.msg.Point(x=-0.23806693267091278, y=-1.3204582573355832, z=0.0677414833925003), 'box_size': 532}
+Pothole #40
+{'centroid_x': 229.0, 'centroid_y': 397.0, 'depth_value': 0.49849725, 'odom_coords': geometry_msgs.msg.Point(x=-0.23361668335912783, y=-0.3234979144315271, z=0.014644394447593675), 'box_size': 1800}
+Pothole #41
+{'centroid_x': 202.5, 'centroid_y': 399.5, 'depth_value': 0.4922458, 'odom_coords': geometry_msgs.msg.Point(x=-0.23154083636770822, y=-0.3172448856997574, z=-0.0130849591045466), 'box_size': 3239}
+Pothole #42
+{'centroid_x': 204.5, 'centroid_y': 399.5, 'depth_value': 0.49224576, 'odom_coords': geometry_msgs.msg.Point(x=-0.23174888777815233, y=-0.3172449821340826, z=-0.010900372833998612), 'box_size': 2067}
+Pothole #43
+{'centroid_x': 301.0, 'centroid_y': 292.5, 'depth_value': 1.4954532, 'odom_coords': geometry_msgs.msg.Point(x=-0.23648654956937332, y=-1.3204559872548438, z=0.05114955652019505), 'box_size': 672}
+Pothole #44
+{'centroid_x': 289.5, 'centroid_y': 336.0, 'depth_value': 0.8136024, 'odom_coords': geometry_msgs.msg.Point(x=-0.23720970966379024, y=-0.6386056372642117, z=0.059941458777993936), 'box_size': 910}
+Pothole #45
+{'centroid_x': 459.5, 'centroid_y': 460.0, 'depth_value': 0.35607266, 'odom_coords': geometry_msgs.msg.Point(x=-0.25404104967073754, y=-0.18108554056351991, z=0.2256623536098593), 'box_size': 4680}
+Pothole #46
+{'centroid_x': 283.5, 'centroid_y': 334.0, 'depth_value': 0.8308205, 'odom_coords': geometry_msgs.msg.Point(x=-0.23600413172651735, y=-0.6558230408213462, z=0.047698294418414694), 'box_size': 1440}
+Pothole #47
+{'centroid_x': 292.0, 'centroid_y': 368.5, 'depth_value': 0.6111083, 'odom_coords': geometry_msgs.msg.Point(x=-0.2356005624027706, y=-0.4361058109482112, z=-0.20975590204535421), 'box_size': 1452}
+Pothole #48
+{'centroid_x': 223.5, 'centroid_y': 346.5, 'depth_value': 0.7373582, 'odom_coords': geometry_msgs.msg.Point(x=-0.22506722364549103, y=-0.5623561381925033, z=-0.32990127844624645), 'box_size': 3431}
+Pothole #49
+{'centroid_x': 312.5, 'centroid_y': 299.5, 'depth_value': 1.3200207, 'odom_coords': geometry_msgs.msg.Point(x=-0.2361376994991431, y=-1.1450181044128913, z=-0.19445963246810435), 'box_size': 513}
+Pothole #50
+{'centroid_x': 182.0, 'centroid_y': 410.5, 'depth_value': 0.4605301, 'odom_coords': geometry_msgs.msg.Point(x=-0.22197211261225575, y=-0.28554100528812393, z=-0.3966568139882418), 'box_size': 12672}
+Pothole #51
+{'centroid_x': 231.0, 'centroid_y': 450.5, 'depth_value': 0.3730084, 'odom_coords': geometry_msgs.msg.Point(x=-0.2289990826205106, y=-0.19801690424586837, z=-0.3292644930732107), 'box_size': 7154}
+Pothole #52
+{'centroid_x': 160.5, 'centroid_y': 440.5, 'depth_value': 0.39158633, 'odom_coords': geometry_msgs.msg.Point(x=-0.22783207335482342, y=-0.21655100447846132, z=-0.6664922652959309), 'box_size': 19327}
+Pothole #53
+{'centroid_x': 414.0, 'centroid_y': 300.5, 'depth_value': 1.2977407, 'odom_coords': geometry_msgs.msg.Point(x=-0.2658117835943993, y=-1.1227193222900986, z=-0.2581590120188483), 'box_size': 504}
+Pothole #54
+{'centroid_x': 123.0, 'centroid_y': 442.0, 'depth_value': 0.38771898, 'odom_coords': geometry_msgs.msg.Point(x=-0.2244576438146104, y=-0.21268259941794943, z=-0.6973407218147964), 'box_size': 14688}
+Pothole #55
+{'centroid_x': 434.0, 'centroid_y': 316.0, 'depth_value': 1.0265191, 'odom_coords': geometry_msgs.msg.Point(x=-0.26420866399876924, y=-0.8514934747540062, z=-0.4040797577530088), 'box_size': 936}
+Pothole #56
+{'centroid_x': 234.0, 'centroid_y': 360.0, 'depth_value': 0.6516377, 'odom_coords': geometry_msgs.msg.Point(x=-0.23111633943594515, y=-0.4765862428328905, z=-0.7879792437086537), 'box_size': 2400}
+Pothole #57
+{'centroid_x': 226.0, 'centroid_y': 385.5, 'depth_value': 0.53964126, 'odom_coords': geometry_msgs.msg.Point(x=-0.22052104182789198, y=-0.3646508789896641, z=-0.9748020688725394), 'box_size': 6030}
+Pothole #58
+{'centroid_x': 444.5, 'centroid_y': 326.0, 'depth_value': 0.9077139, 'odom_coords': geometry_msgs.msg.Point(x=-0.2572583893141056, y=-0.7327147303815207, z=-0.6120820967249856), 'box_size': 936}
+Pothole #59
+{'centroid_x': 176.5, 'centroid_y': 332.5, 'depth_value': 0.84884673, 'odom_coords': geometry_msgs.msg.Point(x=-0.20355576768509343, y=-0.6738601602071963, z=-1.1326774971563256), 'box_size': 805}
+Pothole #60
+{'centroid_x': 498.5, 'centroid_y': 351.0, 'depth_value': 0.7041733, 'odom_coords': geometry_msgs.msg.Point(x=-0.26069089063080914, y=-0.5291734889787006, z=-0.5837897158679195), 'box_size': 1836}
+Pothole #61
+{'centroid_x': 126.5, 'centroid_y': 362.0, 'depth_value': 0.64079905, 'odom_coords': geometry_msgs.msg.Point(x=-0.20254781948816178, y=-0.4658125758786681, z=-1.137240866777839), 'box_size': 3240}
+Pothole #62
+{'centroid_x': 83.5, 'centroid_y': 370.5, 'depth_value': 0.6015079, 'odom_coords': geometry_msgs.msg.Point(x=-0.19904368779534254, y=-0.42652242033926313, z=-1.1777604015603103), 'box_size': 1395}
+Pothole #63
+{'centroid_x': 489.0, 'centroid_y': 352.0, 'depth_value': 0.6979103, 'odom_coords': geometry_msgs.msg.Point(x=-0.25889701301197365, y=-0.5229108861730738, z=-0.6009601929554038), 'box_size': 3120}
+Pothole #64
+{'centroid_x': 484.0, 'centroid_y': 349.0, 'depth_value': 0.7170297, 'odom_coords': geometry_msgs.msg.Point(x=-0.2587692312189802, y=-0.5420302868962685, z=-0.6017610840987772), 'box_size': 1944}
+Pothole #65
+{'centroid_x': 512.5, 'centroid_y': 353.5, 'depth_value': 0.6917715, 'odom_coords': geometry_msgs.msg.Point(x=-0.2632313943196629, y=-0.5167712812916364, z=-0.5672982469006214), 'box_size': 1617}
+Pothole #66
+{'centroid_x': 95.0, 'centroid_y': 384.5, 'depth_value': 0.543473, 'odom_coords': geometry_msgs.msg.Point(x=-0.20385348228416098, y=-0.36848645463478, z=-1.1334317153912774), 'box_size': 5490}
+Pothole #67
+{'centroid_x': 532.0, 'centroid_y': 372.0, 'depth_value': 0.5926672, 'odom_coords': geometry_msgs.msg.Point(x=-0.26096989862573894, y=-0.41766738833349404, z=-0.5838077298024311), 'box_size': 2960}
+Pothole #68
+{'centroid_x': 553.0, 'centroid_y': 374.0, 'depth_value': 0.58385134, 'odom_coords': geometry_msgs.msg.Point(x=-0.2634141394466014, y=-0.40885094742232353, z=-0.5607634721419946), 'box_size': 1872}
+Pothole #69
+{'centroid_x': 513.0, 'centroid_y': 369.5, 'depth_value': 0.6064006, 'odom_coords': geometry_msgs.msg.Point(x=-0.2596021011500471, y=-0.4314012462386966, z=-0.6029770953980829), 'box_size': 3784}
+Pothole #70
+{'centroid_x': 579.5, 'centroid_y': 452.5, 'depth_value': 0.36946964, 'odom_coords': geometry_msgs.msg.Point(x=-0.25492230459490883, y=-0.19447140974154392, z=-0.6496469806898009), 'box_size': 5929}
+Pothole #71
+{'centroid_x': 536.0, 'centroid_y': 397.0, 'depth_value': 0.4983688, 'odom_coords': geometry_msgs.msg.Point(x=1.2837031938297983, y=-0.32340655667332524, z=0.4457333998390975), 'box_size': 5824}
+Pothole #72
+{'centroid_x': 386.0, 'centroid_y': 396.0, 'depth_value': 0.50172985, 'odom_coords': geometry_msgs.msg.Point(x=1.2574378652199358, y=-0.3267186573828384, z=0.7493830057449835), 'box_size': 6048}
+Pothole #73
+{'centroid_x': 315.5, 'centroid_y': 395.5, 'depth_value': 0.5049454, 'odom_coords': geometry_msgs.msg.Point(x=1.273338952973005, y=-0.3297339016778488, z=0.8055049567741455), 'box_size': 5995}
+Pothole #74
+{'centroid_x': 416.5, 'centroid_y': 458.5, 'depth_value': 0.35934526, 'odom_coords': geometry_msgs.msg.Point(x=1.2513742421011191, y=-0.18414149158633084, z=0.7259445266696791), 'box_size': 4343}
+Pothole #75
+{'centroid_x': 264.5, 'centroid_y': 397.0, 'depth_value': 0.49855995, 'odom_coords': geometry_msgs.msg.Point(x=1.2753125406669532, y=-0.32355543380261387, z=0.860635564952721), 'box_size': 5994}
+Pothole #76
+{'centroid_x': 418.0, 'centroid_y': 288.0, 'depth_value': 1.619342, 'odom_coords': geometry_msgs.msg.Point(x=1.1678784659088395, y=-1.4443254430438786, z=0.46060536305325855), 'box_size': 624}
+Pothole #77
+{'centroid_x': 359.5, 'centroid_y': 459.0, 'depth_value': 0.35772976, 'odom_coords': geometry_msgs.msg.Point(x=1.251932441276803, y=-0.1827225147538548, z=0.7702837689716452), 'box_size': 4410}
+Pothole #78
+{'centroid_x': 414.0, 'centroid_y': 287.0, 'depth_value': 1.6534389, 'odom_coords': geometry_msgs.msg.Point(x=1.169666272198807, y=-1.4784226151784394, z=0.46771538107379584), 'box_size': 768}
+Pothole #79
+{'centroid_x': 224.0, 'centroid_y': 400.0, 'depth_value': 0.48922494, 'odom_coords': geometry_msgs.msg.Point(x=1.2862357663151744, y=-0.3142216759845383, z=0.902225225604196), 'box_size': 6360}
+Pothole #80
+{'centroid_x': 322.0, 'centroid_y': 459.0, 'depth_value': 0.3577525, 'odom_coords': geometry_msgs.msg.Point(x=1.2595291656447007, y=-0.1827461255337959, z=0.799204778578668), 'box_size': 4116}
+Pothole #81
+{'centroid_x': 222.5, 'centroid_y': 403.5, 'depth_value': 0.4802474, 'odom_coords': geometry_msgs.msg.Point(x=1.2866898110241483, y=-0.3052441185492657, z=0.9017700560837982), 'box_size': 9525}
+Pothole #82
+{'centroid_x': 220.5, 'centroid_y': 404.5, 'depth_value': 0.47719198, 'odom_coords': geometry_msgs.msg.Point(x=1.3365529503947728, y=-0.3021710874420105, z=0.6661943419270262), 'box_size': 7353}
+Pothole #83
+{'centroid_x': 228.0, 'centroid_y': 408.0, 'depth_value': 0.46586603, 'odom_coords': geometry_msgs.msg.Point(x=1.3328478879458225, y=-0.29084479292285426, z=0.6565571786192617), 'box_size': 10500}
+Pothole #84
+{'centroid_x': 231.0, 'centroid_y': 400.0, 'depth_value': 0.48908252, 'odom_coords': geometry_msgs.msg.Point(x=1.333272126226281, y=-0.31406133460674235, z=0.6580130704192603), 'box_size': 5916}
+Pothole #85
+{'centroid_x': 246.0, 'centroid_y': 415.5, 'depth_value': 0.4474321, 'odom_coords': geometry_msgs.msg.Point(x=1.2702995081031518, y=-0.27243095872488565, z=0.7309181909862523), 'box_size': 7812}
+Pothole #86
+{'centroid_x': 547.5, 'centroid_y': 308.5, 'depth_value': 0.7395942, 'odom_coords': geometry_msgs.msg.Point(x=1.1012660968496422, y=-0.564590600634947, z=0.3107927707098755), 'box_size': 399}
+Pothole #87
+{'centroid_x': 191.0, 'centroid_y': 459.5, 'depth_value': 0.35768357, 'odom_coords': geometry_msgs.msg.Point(x=1.3232681589113093, y=-0.1826100965125973, z=0.42135292149341486), 'box_size': 4592}
+Pothole #88
+{'centroid_x': 466.0, 'centroid_y': 326.0, 'depth_value': 0.9074338, 'odom_coords': geometry_msgs.msg.Point(x=1.1965907591951088, y=-0.7323728820914007, z=0.044538623734451), 'box_size': 720}
+Pothole #89
+{'centroid_x': 617.5, 'centroid_y': 330.5, 'depth_value': 0.63417006, 'odom_coords': geometry_msgs.msg.Point(x=1.114699246001686, y=-0.45925464281228906, z=-0.13908064031816547), 'box_size': 925}
+Pothole #90
+{'centroid_x': 620.0, 'centroid_y': 331.0, 'depth_value': 0.85799336, 'odom_coords': geometry_msgs.msg.Point(x=1.1160191905992598, y=-0.6830758623895641, z=-0.2987618629735025), 'box_size': 616}
+Pothole #91
+{'centroid_x': 409.5, 'centroid_y': 304.5, 'depth_value': 1.217155, 'odom_coords': geometry_msgs.msg.Point(x=1.2090076940224823, y=-1.0422499552838074, z=0.01923640446336461), 'box_size': 957}
+Pothole #92
+{'centroid_x': 611.0, 'centroid_y': 330.0, 'depth_value': 0.6359904, 'odom_coords': geometry_msgs.msg.Point(x=1.1166048691681947, y=-0.4610752418872415, z=-0.13129352920756426), 'box_size': 1232}
+Pothole #93
+{'centroid_x': 507.5, 'centroid_y': 341.5, 'depth_value': 0.7734822, 'odom_coords': geometry_msgs.msg.Point(x=1.1869303438258327, y=-0.5985741826357889, z=-0.05862514593840301), 'box_size': 1131}
+Pothole #94
+{'centroid_x': 569.0, 'centroid_y': 374.5, 'depth_value': 0.5836925, 'odom_coords': geometry_msgs.msg.Point(x=1.1868932299050605, y=-0.408784453468548, z=-0.05955034381235785), 'box_size': 2262}
+Pothole #95
+{'centroid_x': 535.0, 'centroid_y': 372.5, 'depth_value': 0.59250677, 'odom_coords': geometry_msgs.msg.Point(x=1.1980556984254211, y=-0.417600230017282, z=-0.0211168433371689), 'box_size': 3772}
+Pothole #96
+{'centroid_x': 555.0, 'centroid_y': 374.0, 'depth_value': 0.5836946, 'odom_coords': geometry_msgs.msg.Point(x=1.19135329860263, y=-0.40878717143480076, z=-0.04187902402448035), 'box_size': 3120}
+Pothole #97
+{'centroid_x': 568.0, 'centroid_y': 386.0, 'depth_value': 0.53584456, 'odom_coords': geometry_msgs.msg.Point(x=1.1938105837862412, y=-0.36087710617684476, z=-0.26835929021497296), 'box_size': 5544}
+Pothole #98
+{'centroid_x': 537.5, 'centroid_y': 384.5, 'depth_value': 0.5432612, 'odom_coords': geometry_msgs.msg.Point(x=1.2245274033680804, y=-0.3682238381958387, z=-0.298707845790508), 'box_size': 5895}
+Pothole #99
+{'centroid_x': 419.0, 'centroid_y': 324.5, 'depth_value': 0.9289987, 'odom_coords': geometry_msgs.msg.Point(x=1.2344333904628133, y=-0.7539645263963852, z=-0.24076280285881083), 'box_size': 532}
+Pothole #100
+{'centroid_x': 554.0, 'centroid_y': 385.5, 'depth_value': 0.53952384, 'odom_coords': geometry_msgs.msg.Point(x=1.2213630393387018, y=-0.3644855441405228, z=-0.31646329053622985), 'box_size': 4018}
+Pothole #101
+{'centroid_x': 564.5, 'centroid_y': 385.0, 'depth_value': 0.53952146, 'odom_coords': geometry_msgs.msg.Point(x=1.2185529800796997, y=-0.3644824976264701, z=-0.3287875035984179), 'box_size': 3036}
+Pothole #102
+{'centroid_x': 539.5, 'centroid_y': 382.5, 'depth_value': 0.5508842, 'odom_coords': geometry_msgs.msg.Point(x=1.2234397649930233, y=-0.3758465269973089, z=-0.3047543462140098), 'box_size': 4365}
+Pothole #103
+{'centroid_x': 581.5, 'centroid_y': 420.5, 'depth_value': 0.4348271, 'odom_coords': geometry_msgs.msg.Point(x=1.2235461286322635, y=-0.2602521434298508, z=-0.49418502760205646), 'box_size': 6669}
+Pothole #104
+{'centroid_x': 405.0, 'centroid_y': 322.5, 'depth_value': 0.95170975, 'odom_coords': geometry_msgs.msg.Point(x=1.287166157683244, y=-0.7766858294790588, z=-0.3036353678298902), 'box_size': 1102}
+Pothole #105
+{'centroid_x': 488.5, 'centroid_y': 370.5, 'depth_value': 0.6016394, 'odom_coords': geometry_msgs.msg.Point(x=1.2874677727285324, y=-0.4266199757557771, z=-0.3497129803657526), 'box_size': 1333}
+Pothole #106
+{'centroid_x': 410.5, 'centroid_y': 323.5, 'depth_value': 0.94030964, 'odom_coords': geometry_msgs.msg.Point(x=1.2871627556614555, y=-0.7652866447135875, z=-0.3130171370551086), 'box_size': 1333}
+Pothole #107
+{'centroid_x': 475.5, 'centroid_y': 370.0, 'depth_value': 0.6016407, 'odom_coords': geometry_msgs.msg.Point(x=1.2868262263019872, y=-0.4266195947986628, z=-0.33227840251679386), 'box_size': 1632}
+Pothole #108
+{'centroid_x': 528.0, 'centroid_y': 435.0, 'depth_value': 0.40156865, 'odom_coords': geometry_msgs.msg.Point(x=1.3159372614679292, y=-0.22655156970351054, z=-0.28209224882675765), 'box_size': 4416}
+Pothole #109
+{'centroid_x': 405.5, 'centroid_y': 347.5, 'depth_value': 0.73022735, 'odom_coords': geometry_msgs.msg.Point(x=1.3102592066059955, y=-0.5552128556735327, z=-0.2350710492014489), 'box_size': 1715}
+Pothole #110
+{'centroid_x': 448.5, 'centroid_y': 349.0, 'depth_value': 0.7168976, 'odom_coords': geometry_msgs.msg.Point(x=1.3175043346894613, y=-0.5418794926365731, z=-0.30086514820026733), 'box_size': 2124}
+Pothole #111
+{'centroid_x': 416.0, 'centroid_y': 349.5, 'depth_value': 0.71689403, 'odom_coords': geometry_msgs.msg.Point(x=1.3120023116124186, y=-0.5418787573239467, z=-0.24921588449121654), 'box_size': 2496}
+Pothole #112
+{'centroid_x': 434.0, 'centroid_y': 349.5, 'depth_value': 0.7168958, 'odom_coords': geometry_msgs.msg.Point(x=1.3154887835952855, y=-0.541878975572111, z=-0.2777678934790009), 'box_size': 2220}
+Pothole #113
+{'centroid_x': 425.0, 'centroid_y': 319.0, 'depth_value': 0.99085546, 'odom_coords': geometry_msgs.msg.Point(x=1.3338942696100118, y=-0.815840945073257, z=-0.4367686148475946), 'box_size': 1344}
+Pothole #114
+{'centroid_x': 330.0, 'centroid_y': 397.0, 'depth_value': 0.49944448, 'odom_coords': geometry_msgs.msg.Point(x=1.2986792411241515, y=-0.32442667183838153, z=-0.21938051845016437), 'box_size': 6612}
+Pothole #115
+{'centroid_x': 414.5, 'centroid_y': 320.5, 'depth_value': 0.9785081, 'odom_coords': geometry_msgs.msg.Point(x=1.330770574640281, y=-0.8034932122407741, z=-0.41115671419555566), 'box_size': 1271}
+Pothole #116
+{'centroid_x': 299.5, 'centroid_y': 439.5, 'depth_value': 0.39350477, 'odom_coords': geometry_msgs.msg.Point(x=1.2974675517521794, y=-0.21844597245785197, z=-0.3786285509083884), 'box_size': 20935}
+Pothole #117
+{'centroid_x': 287.5, 'centroid_y': 440.0, 'depth_value': 0.39154285, 'odom_coords': geometry_msgs.msg.Point(x=1.2950307352262662, y=-0.21648445193289007, z=-0.36852789962391047), 'box_size': 13452}
+Pothole #118
+{'centroid_x': 384.5, 'centroid_y': 327.5, 'depth_value': 0.89704895, 'odom_coords': geometry_msgs.msg.Point(x=1.3252623527043135, y=-0.7219846958357197, z=-0.5223770829785778), 'box_size': 1911}
+Pothole #119
+{'centroid_x': 364.5, 'centroid_y': 377.5, 'depth_value': 0.57100356, 'odom_coords': geometry_msgs.msg.Point(x=1.298740754869471, y=-0.3959258786807034, z=-0.5916578596505033), 'box_size': 5687}
+Pothole #120
+{'centroid_x': 326.0, 'centroid_y': 416.5, 'depth_value': 0.444835, 'odom_coords': geometry_msgs.msg.Point(x=1.290641024022536, y=-0.2697575575919573, z=-0.5417612186623852), 'box_size': 5670}
+Pothole #121
+{'centroid_x': 359.5, 'centroid_y': 432.5, 'depth_value': 0.40775573, 'odom_coords': geometry_msgs.msg.Point(x=1.2955198370297092, y=-0.23267814358742184, z=-0.5713551746900275), 'box_size': 5499}
+Pothole #122
+{'centroid_x': 403.0, 'centroid_y': 384.5, 'depth_value': 0.5431775, 'odom_coords': geometry_msgs.msg.Point(x=1.3058647506610392, y=-0.3680996048209194, z=-0.6349607956458747), 'box_size': 5310}
+Pothole #123
+{'centroid_x': 431.5, 'centroid_y': 441.5, 'depth_value': 0.38965273, 'odom_coords': geometry_msgs.msg.Point(x=1.324897336122949, y=-0.2146291769937061, z=-0.7591772096454789), 'box_size': 14981}
+Pothole #124
+{'centroid_x': 609.0, 'centroid_y': 364.0, 'depth_value': 0.6308614, 'odom_coords': geometry_msgs.msg.Point(x=1.7005591883574005, y=-0.45581604433436557, z=-0.18938737785209667), 'box_size': 2232}
+Pothole #125
+{'centroid_x': 602.0, 'centroid_y': 363.0, 'depth_value': 0.6359691, 'odom_coords': geometry_msgs.msg.Point(x=1.6955783239466768, y=-0.46092366626559506, z=-0.18499852767426078), 'box_size': 1972}
+Pothole #126
+{'centroid_x': 617.0, 'centroid_y': 364.5, 'depth_value': 0.63086367, 'odom_coords': geometry_msgs.msg.Point(x=1.7094543069314636, y=-0.45581841079851687, z=-0.1963127749545715), 'box_size': 1610}
+Pothole #127
+{'centroid_x': 551.5, 'centroid_y': 357.0, 'depth_value': 0.6684912, 'odom_coords': geometry_msgs.msg.Point(x=1.6544529861232462, y=-0.49344509519665164, z=-0.14871521039237884), 'box_size': 1092}
+Pothole #128
+{'centroid_x': 467.5, 'centroid_y': 350.0, 'depth_value': 0.7103429, 'odom_coords': geometry_msgs.msg.Point(x=1.570813882061593, y=-0.535295471101489, z=-0.07504946105264013), 'box_size': 1908}
+Pothole #129
+{'centroid_x': 468.0, 'centroid_y': 403.0, 'depth_value': 0.4802464, 'odom_coords': geometry_msgs.msg.Point(x=1.453466902842194, y=-0.30528409865192163, z=0.09103520141519844), 'box_size': 6900}
+Pothole #130
+{'centroid_x': 424.0, 'centroid_y': 401.5, 'depth_value': 0.48619378, 'odom_coords': geometry_msgs.msg.Point(x=1.4089357364292774, y=-0.3112304295272293, z=0.10144816194687792), 'box_size': 4510}
+Pothole #131
+{'centroid_x': 437.5, 'centroid_y': 427.5, 'depth_value': 0.41880757, 'odom_coords': geometry_msgs.msg.Point(x=1.3702863170357322, y=-0.24332374742383114, z=0.19284744354359207), 'box_size': 8313}
+Pothole #132
+{'centroid_x': 425.5, 'centroid_y': 428.5, 'depth_value': 0.41658574, 'odom_coords': geometry_msgs.msg.Point(x=1.3585782121982077, y=-0.24110546576935446, z=0.193440396766711), 'box_size': 14421}
+Pothole #133
+{'centroid_x': 602.0, 'centroid_y': 449.5, 'depth_value': 0.37453538, 'odom_coords': geometry_msgs.msg.Point(x=0.26496723672530936, y=-0.19946460117685308, z=1.4051285673737182), 'box_size': 3724}
+Pothole #134
+{'centroid_x': 458.0, 'centroid_y': 417.0, 'depth_value': 0.4420162, 'odom_coords': geometry_msgs.msg.Point(x=0.10361558465497081, y=-0.26701433883610304, z=1.3287941702516892), 'box_size': 6072}
+Pothole #135
+{'centroid_x': 332.5, 'centroid_y': 411.0, 'depth_value': 0.45785338, 'odom_coords': geometry_msgs.msg.Point(x=-0.023497159625342656, y=-0.28285021700383084, z=1.213186235463822), 'box_size': 6050}
+Pothole #136
+{'centroid_x': 579.5, 'centroid_y': 302.5, 'depth_value': 1.2566812, 'odom_coords': geometry_msgs.msg.Point(x=0.12978967615601886, y=-1.0816897143235376, z=1.9097662002565001), 'box_size': 529}
+Pothole #137
+{'centroid_x': 578.5, 'centroid_y': 430.5, 'depth_value': 0.41217083, 'odom_coords': geometry_msgs.msg.Point(x=0.11051840808011888, y=-0.23706864357821386, z=1.3114341391120639), 'box_size': 7011}
+Pothole #138
+{'centroid_x': 241.5, 'centroid_y': 411.5, 'depth_value': 0.45786685, 'odom_coords': geometry_msgs.msg.Point(x=0.024087433153120286, y=-0.2827875781185095, z=1.0057590614091287), 'box_size': 6321}
+Pothole #139
+{'centroid_x': 433.0, 'centroid_y': 316.5, 'depth_value': 1.0264847, 'odom_coords': geometry_msgs.msg.Point(x=0.11674597839883008, y=-0.8513810412045927, z=1.330890092478975), 'box_size': 608}
+Pothole #140
+{'centroid_x': 506.0, 'centroid_y': 419.5, 'depth_value': 0.43738285, 'odom_coords': geometry_msgs.msg.Point(x=0.016454429231997747, y=-0.2623075955352854, z=1.2503114518845388), 'box_size': 7590}
+Pothole #141
+{'centroid_x': 149.0, 'centroid_y': 419.0, 'depth_value': 0.43742862, 'odom_coords': geometry_msgs.msg.Point(x=-0.057872415397797417, y=-0.26237414659829084, z=0.9102683676206813), 'box_size': 7000}
+Pothole #142
+{'centroid_x': 501.0, 'centroid_y': 423.5, 'depth_value': 0.42785016, 'odom_coords': geometry_msgs.msg.Point(x=0.014571476324961474, y=-0.25277542642798245, z=1.2418067380025835), 'box_size': 11680}
+Pothole #143
+{'centroid_x': 386.5, 'centroid_y': 294.5, 'depth_value': 1.4404495, 'odom_coords': geometry_msgs.msg.Point(x=0.024290183144774644, y=-1.2653723143589068, z=1.2804536608440156), 'box_size': 625}
+Pothole #144
+{'centroid_x': 457.0, 'centroid_y': 333.0, 'depth_value': 0.8396413, 'odom_coords': geometry_msgs.msg.Point(x=0.03387011892802742, y=-0.6645614984051611, z=1.3229093125325875), 'box_size': 560}
+Pothole #145
+{'centroid_x': 344.5, 'centroid_y': 314.0, 'depth_value': 1.0538255, 'odom_coords': geometry_msgs.msg.Point(x=-0.008435825462622865, y=-0.8787575962624389, z=1.1283731479889212), 'box_size': 540}
+Pothole #146
+{'centroid_x': 382.5, 'centroid_y': 293.0, 'depth_value': 1.4673734, 'odom_coords': geometry_msgs.msg.Point(x=0.023958309228636232, y=-1.2922966780996439, z=1.2711878282321531), 'box_size': 792}
+Pothole #147
+{'centroid_x': 160.0, 'centroid_y': 451.0, 'depth_value': 0.371225, 'odom_coords': geometry_msgs.msg.Point(x=-0.007225702572142334, y=-0.19618729117945796, z=0.7933597171204482), 'box_size': 8120}
+Pothole #148
+{'centroid_x': 164.5, 'centroid_y': 446.5, 'depth_value': 0.3802136, 'odom_coords': geometry_msgs.msg.Point(x=-0.007458813016942095, y=-0.20517585341188213, z=0.7940429497348445), 'box_size': 6215}
+Pothole #149
+{'centroid_x': 379.5, 'centroid_y': 319.5, 'depth_value': 0.98758525, 'odom_coords': geometry_msgs.msg.Point(x=0.06181307002780695, y=-0.8125375827457818, z=1.046839047848703), 'box_size': 713}
+Pothole #150
+{'centroid_x': 565.5, 'centroid_y': 451.5, 'depth_value': 0.37122115, 'odom_coords': geometry_msgs.msg.Point(x=0.08022144509592001, y=-0.1961707230314043, z=1.1173024334291901), 'box_size': 7599}
+Pothole #151
+{'centroid_x': 515.5, 'centroid_y': 452.5, 'depth_value': 0.36947468, 'odom_coords': geometry_msgs.msg.Point(x=0.06918901206888639, y=-0.19442584444743452, z=1.0766401282990028), 'box_size': 6655}
+Pothole #152
+{'centroid_x': 366.5, 'centroid_y': 324.0, 'depth_value': 0.92949104, 'odom_coords': geometry_msgs.msg.Point(x=0.014211410086741899, y=-0.7545006492510541, z=0.8834439053961335), 'box_size': 660}
+Pothole #153
+{'centroid_x': 501.5, 'centroid_y': 350.0, 'depth_value': 0.7107632, 'odom_coords': geometry_msgs.msg.Point(x=0.055932771286567595, y=-0.5357754332108247, z=1.0703014080862614), 'box_size': 840}
+Pothole #154
+{'centroid_x': 421.5, 'centroid_y': 306.5, 'depth_value': 1.1811831, 'odom_coords': geometry_msgs.msg.Point(x=0.05108736702252535, y=-1.006195054921533, z=1.05002599472923), 'box_size': 1131}
+Pothole #155
+{'centroid_x': 414.0, 'centroid_y': 306.5, 'depth_value': 1.1811879, 'odom_coords': geometry_msgs.msg.Point(x=0.04673386594022237, y=-1.0061995574925107, z=1.0307661816457103), 'box_size': 1116}
+Pothole #156
+{'centroid_x': 383.5, 'centroid_y': 338.0, 'depth_value': 0.7973587, 'odom_coords': geometry_msgs.msg.Point(x=0.01759445758946812, y=-0.622368542310676, z=0.8997679833356369), 'box_size': 840}
+Pothole #157
+{'centroid_x': 565.5, 'centroid_y': 383.0, 'depth_value': 0.5472428, 'odom_coords': geometry_msgs.msg.Point(x=0.058254957109053415, y=-0.3722552240266638, z=1.082179405692802), 'box_size': 910}
+Pothole #158
+{'centroid_x': 442.5, 'centroid_y': 285.0, 'depth_value': 1.7266252, 'odom_coords': geometry_msgs.msg.Point(x=0.09845079287940899, y=-1.551639728721025, z=1.2480689521080965), 'box_size': 540}
+Pothole #159
+{'centroid_x': 581.0, 'centroid_y': 417.0, 'depth_value': 0.44231492, 'odom_coords': geometry_msgs.msg.Point(x=-0.15215867443263031, y=-0.2673364866187559, z=0.7599894125625601), 'box_size': 5104}
+Pothole #160
+{'centroid_x': 393.5, 'centroid_y': 357.5, 'depth_value': 0.66810536, 'odom_coords': geometry_msgs.msg.Point(x=-0.14872854989186246, y=-0.49312120706784923, z=0.6118980720992272), 'box_size': 1053}
+Pothole #161
+{'centroid_x': 379.5, 'centroid_y': 356.5, 'depth_value': 0.6738348, 'odom_coords': geometry_msgs.msg.Point(x=-0.14822577282913896, y=-0.49884986709840207, z=0.5918084394906742), 'box_size': 1107}
+Pothole #162
+{'centroid_x': 387.5, 'centroid_y': 356.5, 'depth_value': 0.6738376, 'odom_coords': geometry_msgs.msg.Point(x=-0.14852241439569053, y=-0.4988531329562018, z=0.6038211901239041), 'box_size': 1247}
+Pothole #163
+{'centroid_x': 395.0, 'centroid_y': 309.5, 'depth_value': 1.1294069, 'odom_coords': geometry_msgs.msg.Point(x=-0.15012727692434413, y=-0.9544258082297219, z=0.6907086076121982), 'box_size': 950}
+Pothole #164
+{'centroid_x': 389.0, 'centroid_y': 310.0, 'depth_value': 1.1133876, 'odom_coords': geometry_msgs.msg.Point(x=-0.1484728343489365, y=-0.938405761199387, z=0.6731937800774432), 'box_size': 816}
+Pothole #165
+{'centroid_x': 393.0, 'centroid_y': 382.0, 'depth_value': 0.55103165, 'odom_coords': geometry_msgs.msg.Point(x=-0.18895094898613013, y=-0.3760424762593933, z=0.44720650317237354), 'box_size': 2160}
+Pothole #166
+{'centroid_x': 450.5, 'centroid_y': 329.5, 'depth_value': 0.87736034, 'odom_coords': geometry_msgs.msg.Point(x=-0.20475101947778862, y=-0.7023786800377891, z=0.6116214077734632), 'box_size': 1505}
+Pothole #167
+{'centroid_x': 454.5, 'centroid_y': 333.0, 'depth_value': 0.83981836, 'odom_coords': geometry_msgs.msg.Point(x=-0.2035396362441812, y=-0.6648365570735011, z=0.6083317299941026), 'box_size': 792}
+Pothole #168
+{'centroid_x': 397.5, 'centroid_y': 315.5, 'depth_value': 1.040127, 'odom_coords': geometry_msgs.msg.Point(x=-0.19746192042698127, y=-0.8651419339106035, z=0.5362518043252555), 'box_size': 1617}
+Pothole #169
+{'centroid_x': 406.5, 'centroid_y': 382.0, 'depth_value': 0.5510283, 'odom_coords': geometry_msgs.msg.Point(x=-0.1905099803424308, y=-0.3760398926620639, z=0.4637140130861817), 'box_size': 1666}
+Pothole #170
+{'centroid_x': 443.0, 'centroid_y': 326.5, 'depth_value': 0.90779805, 'odom_coords': geometry_msgs.msg.Point(x=-0.20412136283337753, y=-0.7328160993663859, z=0.605294930958908), 'box_size': 1950}
+Pothole #171
+{'centroid_x': 386.0, 'centroid_y': 384.5, 'depth_value': 0.54340535, 'odom_coords': geometry_msgs.msg.Point(x=-0.188657127701351, y=-0.3684157277853482, z=0.43748002571453937), 'box_size': 3784}
+Pothole #172
+{'centroid_x': 330.0, 'centroid_y': 432.5, 'depth_value': 0.4075927, 'odom_coords': geometry_msgs.msg.Point(x=-0.29935303105460254, y=-0.2326482311531784, z=0.305723941969642), 'box_size': 4896}
+Pothole #173
+{'centroid_x': 326.0, 'centroid_y': 429.0, 'depth_value': 0.41404057, 'odom_coords': geometry_msgs.msg.Point(x=-0.2977192590258183, y=-0.239095463092461, z=0.30253034717487903), 'box_size': 3800}
+Pothole #174
+{'centroid_x': 387.0, 'centroid_y': 345.5, 'depth_value': 0.74326676, 'odom_coords': geometry_msgs.msg.Point(x=-0.3328834300796456, y=-0.5683404117351742, z=0.40150969010278853), 'box_size': 1518}
+Pothole #175
+{'centroid_x': 390.0, 'centroid_y': 347.0, 'depth_value': 0.72945666, 'odom_coords': geometry_msgs.msg.Point(x=-0.3330839781865843, y=-0.5545308441531649, z=0.4044452481996316), 'box_size': 988}
+Pothole #176
+{'centroid_x': 379.5, 'centroid_y': 343.5, 'depth_value': 0.75761217, 'odom_coords': geometry_msgs.msg.Point(x=-0.3293362326993108, y=-0.5826839385995746, z=0.3915827019622637), 'box_size': 2255}
+Pothole #177
+{'centroid_x': 326.0, 'centroid_y': 329.0, 'depth_value': 0.87595475, 'odom_coords': geometry_msgs.msg.Point(x=-0.2984990958279078, y=-0.7010106849472272, z=0.3081754536354057), 'box_size': 2560}
+Pothole #178
+{'centroid_x': 365.5, 'centroid_y': 338.0, 'depth_value': 0.7960198, 'odom_coords': geometry_msgs.msg.Point(x=-0.3218238247544829, y=-0.621088059441966, z=0.37324268039805186), 'box_size': 2860}
+Pothole #179
+{'centroid_x': 344.0, 'centroid_y': 361.0, 'depth_value': 0.64608705, 'odom_coords': geometry_msgs.msg.Point(x=-0.30693646751733406, y=-0.4711470922600782, z=0.32974081487778584), 'box_size': 988}
+Pothole #180
+{'centroid_x': 341.5, 'centroid_y': 360.0, 'depth_value': 0.65144795, 'odom_coords': geometry_msgs.msg.Point(x=-0.30580362481417156, y=-0.4765073961089251, z=0.3265877369213059), 'box_size': 1440}
+Pothole #181
+{'centroid_x': 271.5, 'centroid_y': 338.0, 'depth_value': 0.7969247, 'odom_coords': geometry_msgs.msg.Point(x=-0.2661436467202385, y=-0.6219631848433779, z=0.21591678349808044), 'box_size': 3036}
+Pothole #182
+{'centroid_x': 323.0, 'centroid_y': 375.5, 'depth_value': 0.57959366, 'odom_coords': geometry_msgs.msg.Point(x=-0.4904180600100603, y=-0.4045088670841094, z=-0.07156175532807697), 'box_size': 1610}
+Pothole #183
+{'centroid_x': 325.0, 'centroid_y': 376.5, 'depth_value': 0.57534635, 'odom_coords': geometry_msgs.msg.Point(x=-0.49274878229963526, y=-0.4002613978105214, z=-0.07054963128395685), 'box_size': 1102}
+Pothole #184
+{'centroid_x': 246.5, 'centroid_y': 352.5, 'depth_value': 0.698117, 'odom_coords': geometry_msgs.msg.Point(x=-0.3818642772344935, y=-0.5230397375644811, z=-0.1187726419631981), 'box_size': 3479}
+Pothole #185
+{'centroid_x': 164.5, 'centroid_y': 355.5, 'depth_value': 0.6945231, 'odom_coords': geometry_msgs.msg.Point(x=-0.2526492703876119, y=-0.5194981157660031, z=-0.20511705114428522), 'box_size': 4029}
+Pothole #186
+{'centroid_x': 592.0, 'centroid_y': 300.5, 'depth_value': 1.2048936, 'odom_coords': geometry_msgs.msg.Point(x=-1.1813209886979958, y=-1.029806377604894, z=0.07798850506974446), 'box_size': 570}
+Pothole #187
+{'centroid_x': 242.5, 'centroid_y': 377.0, 'depth_value': 0.58196026, 'odom_coords': geometry_msgs.msg.Point(x=-0.38729259237691993, y=-0.40692625036175256, z=-0.16561032669566478), 'box_size': 1530}
+Pothole #188
+{'centroid_x': 178.0, 'centroid_y': 292.5, 'depth_value': 1.5596159, 'odom_coords': geometry_msgs.msg.Point(x=-0.00935986357653823, y=-1.3846071835689087, z=-0.2775576548753798), 'box_size': 570}
+Pothole #189
+{'centroid_x': 223.5, 'centroid_y': 378.0, 'depth_value': 0.57766813, 'odom_coords': geometry_msgs.msg.Point(x=-0.3644823688175725, y=-0.40263565054492423, z=-0.17211375327874537), 'box_size': 3382}
+Pothole #190
+{'centroid_x': 50.0, 'centroid_y': 399.5, 'depth_value': 0.49225926, 'odom_coords': geometry_msgs.msg.Point(x=-0.1984820297749773, y=-0.3172379351824616, z=-0.2168896554204967), 'box_size': 2418}
+Pothole #191
+{'centroid_x': 41.5, 'centroid_y': 400.5, 'depth_value': 0.48918855, 'odom_coords': geometry_msgs.msg.Point(x=-0.19135117162921333, y=-0.31416770155898305, z=-0.21893083389470203), 'box_size': 3569}
+Pothole #192
+{'centroid_x': 616.5, 'centroid_y': 346.5, 'depth_value': 0.7377954, 'odom_coords': geometry_msgs.msg.Point(x=-0.9518655144120204, y=-0.5627235326563909, z=-0.0013205565196194313), 'box_size': 1551}
+Pothole #193
+{'centroid_x': 627.5, 'centroid_y': 394.5, 'depth_value': 0.5084758, 'odom_coords': geometry_msgs.msg.Point(x=-0.8184245096402527, y=-0.3334128529586192, z=-0.03970172950915898), 'box_size': 675}
+Pothole #194
+{'centroid_x': 234.5, 'centroid_y': 375.0, 'depth_value': 0.57938725, 'odom_coords': geometry_msgs.msg.Point(x=-0.3768635301643823, y=-0.4043539531805288, z=-0.1650917231711963), 'box_size': 2166}
+Pothole #195
+{'centroid_x': 215.0, 'centroid_y': 376.5, 'depth_value': 0.5751511, 'odom_coords': geometry_msgs.msg.Point(x=-0.3537873290565038, y=-0.40011933671414324, z=-0.17236943248419997), 'box_size': 3608}
+Pothole #196
+{'centroid_x': 233.0, 'centroid_y': 332.0, 'depth_value': 0.8486787, 'odom_coords': geometry_msgs.msg.Point(x=-0.3243531146909217, y=-0.6736489407243273, z=-0.1794795114268587), 'box_size': 1008}
+Pothole #197
+{'centroid_x': 277.5, 'centroid_y': 390.0, 'depth_value': 0.5209164, 'odom_coords': geometry_msgs.msg.Point(x=-0.4337802826061591, y=-0.34591200651196197, z=-0.22119190297845248), 'box_size': 2840}
+Pothole #198
+{'centroid_x': 233.5, 'centroid_y': 337.0, 'depth_value': 0.8031739, 'odom_coords': geometry_msgs.msg.Point(x=-0.33172487554851815, y=-0.6281646076715315, z=-0.24925474511810114), 'box_size': 1290}
+Pothole #199
+{'centroid_x': 286.0, 'centroid_y': 389.5, 'depth_value': 0.5244092, 'odom_coords': geometry_msgs.msg.Point(x=-0.44317557733505375, y=-0.3494052123986181, z=-0.21913228773773386), 'box_size': 1950}
+Pothole #200
+{'centroid_x': 255.0, 'centroid_y': 392.0, 'depth_value': 0.51406217, 'odom_coords': geometry_msgs.msg.Point(x=-0.40960926362895045, y=-0.3390566036804378, z=-0.2280480501777739), 'box_size': 4488}
+Pothole #201
+{'centroid_x': 619.0, 'centroid_y': 337.5, 'depth_value': 0.8046292, 'odom_coords': geometry_msgs.msg.Point(x=-0.9970088626883189, y=-0.6296519778095389, z=-0.06201698256245615), 'box_size': 1218}
+Pothole #202
+{'centroid_x': 222.5, 'centroid_y': 396.0, 'depth_value': 0.5016582, 'odom_coords': geometry_msgs.msg.Point(x=-0.4145082499006648, y=-0.32666062572242116, z=-0.31727892003446145), 'box_size': 3400}
+Pothole #203
+{'centroid_x': 237.0, 'centroid_y': 394.5, 'depth_value': 0.5081512, 'odom_coords': geometry_msgs.msg.Point(x=-0.42821660556749747, y=-0.3331540676750231, z=-0.311151406625116), 'box_size': 1872}
+Pothole #204
+{'centroid_x': 271.5, 'centroid_y': 452.0, 'depth_value': 0.36946657, 'odom_coords': geometry_msgs.msg.Point(x=-0.4439637387810187, y=-0.19447265458046228, z=-0.35328344689810504), 'box_size': 8008}
+Pothole #205
+{'centroid_x': 86.5, 'centroid_y': 307.5, 'depth_value': 1.1628535, 'odom_coords': geometry_msgs.msg.Point(x=0.09321586591620634, y=-0.9878399729997951, z=-0.5322590627214127), 'box_size': 513}
+Pothole #206
+{'centroid_x': 242.5, 'centroid_y': 360.5, 'depth_value': 0.65152055, 'odom_coords': geometry_msgs.msg.Point(x=-0.37481938239293744, y=-0.4765241121978909, z=-0.3764811842981187), 'box_size': 1961}
+Pothole #207
+{'centroid_x': 302.5, 'centroid_y': 358.5, 'depth_value': 0.66253555, 'odom_coords': geometry_msgs.msg.Point(x=-0.45703954250114676, y=-0.4875421074875079, z=-0.3489935596299357), 'box_size': 1073}
+Pothole #208
+{'centroid_x': 299.0, 'centroid_y': 359.0, 'depth_value': 0.6569905, 'odom_coords': geometry_msgs.msg.Point(x=-0.4521592957815109, y=-0.48199690217250635, z=-0.3498590198638383), 'box_size': 1728}
+Pothole #209
+{'centroid_x': 278.5, 'centroid_y': 447.5, 'depth_value': 0.37836966, 'odom_coords': geometry_msgs.msg.Point(x=-0.44876786845159466, y=-0.2033759199473382, z=-0.3521014433533869), 'box_size': 5885}
+Pothole #210
+{'centroid_x': 534.5, 'centroid_y': 360.5, 'depth_value': 0.65161276, 'odom_coords': geometry_msgs.msg.Point(x=-0.7770603065180977, y=-0.47663098482260413, z=-0.2420699153350409), 'box_size': 945}
+Pothole #211
+{'centroid_x': 197.0, 'centroid_y': 452.5, 'depth_value': 0.3693782, 'odom_coords': geometry_msgs.msg.Point(x=-0.3711035918976408, y=-0.19439295023758874, z=-0.39337503370614724), 'box_size': 6272}
+Pothole #212
+{'centroid_x': 457.0, 'centroid_y': 356.0, 'depth_value': 0.6736623, 'odom_coords': geometry_msgs.msg.Point(x=-0.6660751237039462, y=-0.49868994564926167, z=-0.3095753045806118), 'box_size': 936}
+Pothole #213
+{'centroid_x': 150.5, 'centroid_y': 458.0, 'depth_value': 0.35923553, 'odom_coords': geometry_msgs.msg.Point(x=-0.3378332712581501, y=-0.18424879435617497, z=-0.40229139236000233), 'box_size': 3916}
+Pothole #214
+{'centroid_x': 209.0, 'centroid_y': 366.5, 'depth_value': 0.62039655, 'odom_coords': geometry_msgs.msg.Point(x=-0.3204464022545145, y=-0.445409063948135, z=-0.4072335745418665), 'box_size': 2418}
+Pothole #215
+{'centroid_x': 222.5, 'centroid_y': 365.0, 'depth_value': 0.6253396, 'odom_coords': geometry_msgs.msg.Point(x=-0.3371938134019784, y=-0.45035284809573245, z=-0.4018124470564931), 'box_size': 1980}
+Pothole #216
+{'centroid_x': 452.0, 'centroid_y': 355.0, 'depth_value': 0.6794919, 'odom_coords': geometry_msgs.msg.Point(x=-0.6604867389699054, y=-0.5045192727931533, z=-0.3111261612103425), 'box_size': 1320}
+Pothole #217
+{'centroid_x': 619.5, 'centroid_y': 353.5, 'depth_value': 0.69148624, 'odom_coords': geometry_msgs.msg.Point(x=-0.9126793288050863, y=-0.5165247194414111, z=-0.24125921372166925), 'box_size': 1189}
+Pothole #218
+{'centroid_x': 443.5, 'centroid_y': 354.5, 'depth_value': 0.68542266, 'odom_coords': geometry_msgs.msg.Point(x=-0.6498574627171894, y=-0.5104496126799458, z=-0.31488199503082304), 'box_size': 1189}
+Pothole #219
+{'centroid_x': 436.0, 'centroid_y': 355.0, 'depth_value': 0.6794896, 'odom_coords': geometry_msgs.msg.Point(x=-0.6371505303404286, y=-0.5045159843695108, z=-0.3176625252649494), 'box_size': 936}
+Pothole #220
+{'centroid_x': 169.5, 'centroid_y': 367.5, 'depth_value': 0.6155278, 'odom_coords': geometry_msgs.msg.Point(x=-0.26942669645993916, y=-0.44053808078375484, z=-0.4215302786011175), 'box_size': 2223}
+Pothole #221
+{'centroid_x': 160.0, 'centroid_y': 368.0, 'depth_value': 0.6107386, 'odom_coords': geometry_msgs.msg.Point(x=-0.25834357285907805, y=-0.43574833929701323, z=-0.4239340394289034), 'box_size': 2280}
+Pothole #222
+{'centroid_x': 448.0, 'centroid_y': 355.0, 'depth_value': 0.67974675, 'odom_coords': geometry_msgs.msg.Point(x=-0.6732576428811685, y=-0.5047830280291062, z=-0.44581828441294125), 'box_size': 988}
+Pothole #223
+{'centroid_x': 148.0, 'centroid_y': 369.0, 'depth_value': 0.606242, 'odom_coords': geometry_msgs.msg.Point(x=-0.26834020665010344, y=-0.4312674214997907, z=-0.5790979297386742), 'box_size': 1800}
+Pothole #224
+{'centroid_x': 188.5, 'centroid_y': 457.0, 'depth_value': 0.36097068, 'odom_coords': geometry_msgs.msg.Point(x=-0.38907250988704495, y=-0.1859993643224745, z=-0.5400065060106956), 'box_size': 6762}
+Pothole #225
+{'centroid_x': 216.0, 'centroid_y': 365.5, 'depth_value': 0.62556815, 'odom_coords': geometry_msgs.msg.Point(x=-0.35156233814140475, y=-0.45059583783435775, z=-0.5524288275905105), 'box_size': 1924}
+Pothole #226
+{'centroid_x': 436.0, 'centroid_y': 354.0, 'depth_value': 0.68568206, 'odom_coords': geometry_msgs.msg.Point(x=-0.6574320093279127, y=-0.5107179138985323, z=-0.4510059940196073), 'box_size': 1320}
+Pothole #227
+{'centroid_x': 615.0, 'centroid_y': 355.0, 'depth_value': 0.6797621, 'odom_coords': geometry_msgs.msg.Point(x=-0.9136480729109832, y=-0.504804858552802, z=-0.3667989434636342), 'box_size': 1700}
+Pothole #228
+{'centroid_x': 191.0, 'centroid_y': 454.0, 'depth_value': 0.36601904, 'odom_coords': geometry_msgs.msg.Point(x=-0.3895953142735529, y=-0.19104774219510956, z=-0.5398224050260801), 'box_size': 5500}
+Pothole #229
+{'centroid_x': 202.0, 'centroid_y': 367.0, 'depth_value': 0.61575496, 'odom_coords': geometry_msgs.msg.Point(x=-0.33526882339142117, y=-0.440782177842009, z=-0.5570745917403486), 'box_size': 2480}
+Pothole #230
+{'centroid_x': 621.5, 'centroid_y': 354.5, 'depth_value': 0.6856992, 'odom_coords': geometry_msgs.msg.Point(x=-0.9270228840624195, y=-0.510742353870772, z=-0.3631924958252769), 'box_size': 1147}
+Pothole #231
+{'centroid_x': 160.5, 'centroid_y': 368.0, 'depth_value': 0.61096036, 'odom_coords': geometry_msgs.msg.Point(x=-0.2827850096789917, y=-0.435986171985694, z=-0.5743382963820864), 'box_size': 2440}
+Pothole #232
+{'centroid_x': 428.0, 'centroid_y': 354.0, 'depth_value': 0.68568134, 'odom_coords': geometry_msgs.msg.Point(x=-0.645816052262551, y=-0.5107168868493732, z=-0.4548243135422879), 'box_size': 988}
+Pothole #233
+{'centroid_x': 143.0, 'centroid_y': 458.0, 'depth_value': 0.35931754, 'odom_coords': geometry_msgs.msg.Point(x=-0.35491589960350867, y=-0.18434531285629907, z=-0.5512382153638309), 'box_size': 5016}
+Pothole #234
+{'centroid_x': 100.5, 'centroid_y': 419.0, 'depth_value': 0.4374178, 'odom_coords': geometry_msgs.msg.Point(x=-0.2641459137791534, y=-0.2623849828747595, z=-0.5902444843303131), 'box_size': 5022}
+Pothole #235
+{'centroid_x': 151.0, 'centroid_y': 411.0, 'depth_value': 0.45783356, 'odom_coords': geometry_msgs.msg.Point(x=-0.3041079506289472, y=-0.28280010870958067, z=-0.578958111463538), 'box_size': 6700}
+Pothole #236
+{'centroid_x': 167.5, 'centroid_y': 406.5, 'depth_value': 0.47158664, 'odom_coords': geometry_msgs.msg.Point(x=-0.3159369334047595, y=-0.2965529984788285, z=-0.5761459622843076), 'box_size': 5151}
+Pothole #237
+{'centroid_x': 490.5, 'centroid_y': 393.0, 'depth_value': 0.5116153, 'odom_coords': geometry_msgs.msg.Point(x=-0.6572210114721906, y=-0.3365762779591527, z=-0.4795126023909757), 'box_size': 1980}
+Pothole #238
+{'centroid_x': 479.5, 'centroid_y': 393.5, 'depth_value': 0.5116123, 'odom_coords': geometry_msgs.msg.Point(x=-0.6452985932981486, y=-0.3365734729674599, z=-0.4834585203279083), 'box_size': 3159}
+Pothole #239
+{'centroid_x': 107.5, 'centroid_y': 418.0, 'depth_value': 0.43986976, 'odom_coords': geometry_msgs.msg.Point(x=-0.2695940148273829, y=-0.26483685361181014, z=-0.5887065251558344), 'box_size': 6350}
+Pothole #240
+{'centroid_x': 497.5, 'centroid_y': 392.5, 'depth_value': 0.51497275, 'odom_coords': geometry_msgs.msg.Point(x=-0.6663343419943364, y=-0.3399335926103192, z=-0.47753784161651486), 'box_size': 1353}
+Pothole #241
+{'centroid_x': 64.0, 'centroid_y': 435.0, 'depth_value': 0.401613, 'odom_coords': geometry_msgs.msg.Point(x=-0.2496142396413403, y=-0.2265804015127727, z=-0.5944125643107322), 'box_size': 5640}
+Pothole #242
+{'centroid_x': 134.5, 'centroid_y': 421.5, 'depth_value': 0.4325831, 'odom_coords': geometry_msgs.msg.Point(x=-0.29811871480998736, y=-0.257549726888956, z=-0.5811912442807696), 'box_size': 7473}
+Pothole #243
+{'centroid_x': 480.5, 'centroid_y': 400.0, 'depth_value': 0.4891255, 'odom_coords': geometry_msgs.msg.Point(x=-0.6385181728866963, y=-0.31408678608303214, z=-0.48476098672614076), 'box_size': 2318}
+Pothole #244
+{'centroid_x': 118.0, 'centroid_y': 427.0, 'depth_value': 0.41874224, 'odom_coords': geometry_msgs.msg.Point(x=-0.28869505900278103, y=-0.2437090304865232, z=-0.5833744152657365), 'box_size': 16048}
+Pothole #245
+{'centroid_x': 465.0, 'centroid_y': 400.5, 'depth_value': 0.489128, 'odom_coords': geometry_msgs.msg.Point(x=-0.6223992480956856, y=-0.3140895311792169, z=-0.48986362704782804), 'box_size': 3280}
+Pothole #246
+{'centroid_x': 493.5, 'centroid_y': 400.5, 'depth_value': 0.48912334, 'odom_coords': geometry_msgs.msg.Point(x=-0.6523086118195465, y=-0.31408441190295144, z=-0.48144626141962144), 'box_size': 1575}
+Pothole #247
+{'centroid_x': 465.0, 'centroid_y': 400.0, 'depth_value': 0.489128, 'odom_coords': geometry_msgs.msg.Point(x=-0.6222515944993687, y=-0.3140895451556782, z=-0.4893388632104454), 'box_size': 2128}
+Pothole #248
+{'centroid_x': 514.5, 'centroid_y': 441.0, 'depth_value': 0.39002728, 'odom_coords': geometry_msgs.msg.Point(x=0.6618580593237939, y=-0.2148651375631001, z=-0.9068104912914096), 'box_size': 18072}
+Pothole #249
+{'centroid_x': 392.0, 'centroid_y': 436.0, 'depth_value': 0.39955586, 'odom_coords': geometry_msgs.msg.Point(x=0.8754874627183851, y=-0.22452843148674112, z=-0.6024977263071717), 'box_size': 16000}
+Pothole #250
+{'centroid_x': 617.5, 'centroid_y': 361.5, 'depth_value': 0.64617276, 'odom_coords': geometry_msgs.msg.Point(x=0.7839018004778439, y=-0.47113179559817375, z=-0.9549017252935017), 'box_size': 1395}
+Pothole #251
+{'centroid_x': 418.5, 'centroid_y': 431.0, 'depth_value': 0.4099879, 'odom_coords': geometry_msgs.msg.Point(x=0.8689436666155748, y=-0.23495950433690632, z=-0.6275375121589246), 'box_size': 9438}
+Pothole #252
+{'centroid_x': 295.0, 'centroid_y': 435.5, 'depth_value': 0.40150943, 'odom_coords': geometry_msgs.msg.Point(x=0.8621728540066093, y=-0.2265165251129172, z=-0.6368747704329976), 'box_size': 16200}
+Pothole #253
+{'centroid_x': 322.5, 'centroid_y': 429.5, 'depth_value': 0.41422012, 'odom_coords': geometry_msgs.msg.Point(x=0.854274435308269, y=-0.23922690159454463, z=-0.6602448404852617), 'box_size': 9295}
+Pothole #254
+{'centroid_x': 600.0, 'centroid_y': 344.5, 'depth_value': 0.75104666, 'odom_coords': geometry_msgs.msg.Point(x=0.704936553849352, y=-0.5760474983559696, z=-1.101742448382854), 'box_size': 1160}
+Pothole #255
+{'centroid_x': 500.0, 'centroid_y': 349.5, 'depth_value': 0.71675384, 'odom_coords': geometry_msgs.msg.Point(x=0.7628617714283948, y=-0.5417569847256782, z=-0.9301222279514012), 'box_size': 1080}
+Pothole #256
+{'centroid_x': 216.0, 'centroid_y': 435.0, 'depth_value': 0.40154037, 'odom_coords': geometry_msgs.msg.Point(x=0.8843597465110505, y=-0.2265483454474964, z=-0.5697339241439454), 'box_size': 17600}
+Pothole #257
+{'centroid_x': 251.5, 'centroid_y': 430.0, 'depth_value': 0.412078, 'odom_coords': geometry_msgs.msg.Point(x=0.8746998668005225, y=-0.23708558579711048, z=-0.5982983138383415), 'box_size': 9438}
+Pothole #258
+{'centroid_x': 513.0, 'centroid_y': 336.5, 'depth_value': 0.81336164, 'odom_coords': geometry_msgs.msg.Point(x=0.7428810873561791, y=-0.6383639951251715, z=-0.9890512958543497), 'box_size': 1160}
+Pothole #259
+{'centroid_x': 167.0, 'centroid_y': 438.5, 'depth_value': 0.3954727, 'odom_coords': geometry_msgs.msg.Point(x=0.8981435757897311, y=-0.22048122695914063, z=-0.5302891985842003), 'box_size': 8760}
+Pothole #260
+{'centroid_x': 463.0, 'centroid_y': 339.0, 'depth_value': 0.7888477, 'odom_coords': geometry_msgs.msg.Point(x=0.7735359964016174, y=-0.6138512605137075, z=-0.8955050451227187), 'box_size': 1824}
+Pothole #261
+{'centroid_x': 185.0, 'centroid_y': 438.0, 'depth_value': 0.3954729, 'odom_coords': geometry_msgs.msg.Point(x=0.8926550108019922, y=-0.22048122044463364, z=-0.5451835497871723), 'box_size': 12728}
+Pothole #262
+{'centroid_x': 185.0, 'centroid_y': 443.5, 'depth_value': 0.38583156, 'odom_coords': geometry_msgs.msg.Point(x=0.8947677560273256, y=-0.21081056871945097, z=-0.6586917402172183), 'box_size': 17420}
+Pothole #263
+{'centroid_x': 217.0, 'centroid_y': 444.0, 'depth_value': 0.38394573, 'odom_coords': geometry_msgs.msg.Point(x=0.8856408856443537, y=-0.20892702313578176, z=-0.6851195862732927), 'box_size': 8964}
+Pothole #264
+{'centroid_x': 418.0, 'centroid_y': 352.0, 'depth_value': 0.69793725, 'odom_coords': geometry_msgs.msg.Point(x=0.8100302020499777, y=-0.5229381013389351, z=-0.9131474328543119), 'box_size': 1176}
+Pothole #265
+{'centroid_x': 190.0, 'centroid_y': 443.5, 'depth_value': 0.3858497, 'odom_coords': geometry_msgs.msg.Point(x=0.8612139584606837, y=-0.2107685292326943, z=-0.8951426316437039), 'box_size': 8480}
+Pothole #266
+{'centroid_x': 168.5, 'centroid_y': 443.5, 'depth_value': 0.38585246, 'odom_coords': geometry_msgs.msg.Point(x=0.867617326837594, y=-0.21077159232501486, z=-0.8777942007661949), 'box_size': 15663}
+Pothole #267
+{'centroid_x': 99.0, 'centroid_y': 452.0, 'depth_value': 0.36951935, 'odom_coords': geometry_msgs.msg.Point(x=0.8851539432816221, y=-0.1944394103051872, z=-0.8291454578271765), 'box_size': 7668}
+Pothole #268
+{'centroid_x': 527.5, 'centroid_y': 360.5, 'depth_value': 0.65158594, 'odom_coords': geometry_msgs.msg.Point(x=0.8368785655117769, y=-0.4765483267899245, z=-1.2025465067196857), 'box_size': 1505}
+Pothole #269
+{'centroid_x': 421.0, 'centroid_y': 377.0, 'depth_value': 0.57102823, 'odom_coords': geometry_msgs.msg.Point(x=0.8793448333560705, y=-0.3959969719895478, z=-1.0351166608488656), 'box_size': 2584}
+Pothole #270
+{'centroid_x': 511.5, 'centroid_y': 362.0, 'depth_value': 0.64094794, 'odom_coords': geometry_msgs.msg.Point(x=0.8431100537018278, y=-0.465911345861944, z=-1.1754776763980777), 'box_size': 3230}
+Pothole #271
+{'centroid_x': 484.0, 'centroid_y': 436.0, 'depth_value': 0.39962834, 'odom_coords': geometry_msgs.msg.Point(x=0.8753286893057165, y=-0.22459643100247068, z=-1.0523767353562359), 'box_size': 5076}
+Pothole #272
+{'centroid_x': 571.5, 'centroid_y': 413.0, 'depth_value': 0.45245135, 'odom_coords': geometry_msgs.msg.Point(x=0.8785783478814736, y=-0.2774108183785303, z=-1.385003336440439), 'box_size': 6850}
+Pothole #273
+{'centroid_x': 455.5, 'centroid_y': 445.5, 'depth_value': 0.38204408, 'odom_coords': geometry_msgs.msg.Point(x=1.0519717704594265, y=-0.20661240429971162, z=-1.144141244622351), 'box_size': 6517}
+Pothole #274
+{'centroid_x': 540.5, 'centroid_y': 409.0, 'depth_value': 0.46317792, 'odom_coords': geometry_msgs.msg.Point(x=1.0391163518107112, y=-0.2878225870370945, z=-1.2555202139733455), 'box_size': 7314}
+Pothole #275
+{'centroid_x': 555.5, 'centroid_y': 438.5, 'depth_value': 0.3954625, 'odom_coords': geometry_msgs.msg.Point(x=1.4565492316636455, y=-0.22048466270764638, z=-0.6333867001597266), 'box_size': 11999}
+Pothole #276
+{'centroid_x': 576.0, 'centroid_y': 438.0, 'depth_value': 0.39546263, 'odom_coords': geometry_msgs.msg.Point(x=1.4626065957956138, y=-0.22048912293751322, z=-0.6504177288640363), 'box_size': 8192}
+Pothole #277
+{'centroid_x': 616.0, 'centroid_y': 360.5, 'depth_value': 0.65152115, 'odom_coords': geometry_msgs.msg.Point(x=1.7113981962815898, y=-0.476576714451477, z=-0.04299143182072135), 'box_size': 1160}
+Pothole #278
+{'centroid_x': 547.0, 'centroid_y': 353.5, 'depth_value': 0.69171685, 'odom_coords': geometry_msgs.msg.Point(x=1.6519283786699528, y=-0.5167683877311146, z=0.010390465421632467), 'box_size': 1584}
+Pothole #279
+{'centroid_x': 500.0, 'centroid_y': 349.5, 'depth_value': 0.71706873, 'odom_coords': geometry_msgs.msg.Point(x=1.558579136549988, y=-0.5420845259489551, z=0.1493016676713232), 'box_size': 1026}
+Pothole #280
+{'centroid_x': 376.5, 'centroid_y': 367.5, 'depth_value': 0.61578494, 'odom_coords': geometry_msgs.msg.Point(x=1.3067795727900615, y=-0.44069157673993165, z=0.07405618552058771), 'box_size': 2379}
+Pothole #281
+{'centroid_x': 378.5, 'centroid_y': 408.5, 'depth_value': 0.46595687, 'odom_coords': geometry_msgs.msg.Point(x=1.2631545997832205, y=-0.29069815835481916, z=0.14200503312019827), 'box_size': 6795}
+Pothole #282
+{'centroid_x': 336.0, 'centroid_y': 408.5, 'depth_value': 0.46596092, 'odom_coords': geometry_msgs.msg.Point(x=1.2192628394685332, y=-0.290710787293653, z=0.1466962450752395), 'box_size': 5016}
+Pothole #283
+{'centroid_x': 382.0, 'centroid_y': 406.5, 'depth_value': 0.4715532, 'odom_coords': geometry_msgs.msg.Point(x=1.2675324471344704, y=-0.29629364247335344, z=0.14153056407973455), 'box_size': 5390}
+Pothole #284
+{'centroid_x': 372.5, 'centroid_y': 418.0, 'depth_value': 0.43987942, 'odom_coords': geometry_msgs.msg.Point(x=1.2711064451790441, y=-0.26484317418244474, z=-0.004150905138212202), 'box_size': 7824}
+Pothole #285
+{'centroid_x': 326.5, 'centroid_y': 419.0, 'depth_value': 0.4374283, 'odom_coords': geometry_msgs.msg.Point(x=1.22703337208768, y=-0.2623928800711012, z=0.005587114143927235), 'box_size': 5940}
+Pothole #286
+{'centroid_x': 356.0, 'centroid_y': 422.0, 'depth_value': 0.4302379, 'odom_coords': geometry_msgs.msg.Point(x=1.2545681752559863, y=-0.25520195689668207, z=-0.0004768128146291073), 'box_size': 13720}
+Pothole #287
+{'centroid_x': 420.0, 'centroid_y': 430.5, 'depth_value': 0.4124033, 'odom_coords': geometry_msgs.msg.Point(x=0.046566385647741654, y=-0.23734793285709796, z=1.217924000790015), 'box_size': 7150}
+Pothole #288
+{'centroid_x': 414.0, 'centroid_y': 438.0, 'depth_value': 0.39577475, 'odom_coords': geometry_msgs.msg.Point(x=0.04438485127061753, y=-0.22071971525785836, z=1.209200777622268), 'box_size': 13392}
