@@ -26,6 +26,8 @@ class ObjectDetector(Node):
     detected_potholes = []
     camera_model = None
     image_depth_ros = None
+    YOLOv8n_TRAINED_MODEL = "src/object_detection/object_detection/runs/detect/train2/weights/best.pt"
+    DETECTED_POTHOLE_FILE_PATH = "src/object_detection/data/detected_potholes.txt"
 
     # aspect ration between color and depth cameras
     # calculated as (color_horizontal_FOV/color_width) / (depth_horizontal_FOV/depth_width) from the dabai camera parameters
@@ -195,17 +197,16 @@ class ObjectDetector(Node):
 
         # self.publish_status("Object detection started!")
         # Perform YOLO object detection
-        model = YOLO("src/object_detection/object_detection/runs/detect/train2/weights/best.pt")
+        model = YOLO(self.YOLOv8n_TRAINED_MODEL)
         results = model.predict(source=image_color, save_txt=True, save=False, stream=True)
         
         # Process and print pothole information
         self.process_detected_potholes(results, image_depth, image_color)
 
     def save_detected_potholes(self):
-        file_path = "src/object_detection/object_detection/test/detected_potholes.txt"
         count = 1
         try:
-            with open(file_path, 'w') as file:
+            with open(self.DETECTED_POTHOLE_FILE_PATH, 'w') as file:
                 for pothole in self.detected_potholes:
                     file.write(f"{pothole}\n")
                     count += 1
