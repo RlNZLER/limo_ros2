@@ -100,12 +100,12 @@ def follow_waypoints(status, nav):
         pose_from_xytheta(nav, -1.05, -1.00, -3.14), # At point D.
         pose_from_xytheta(nav, -1.05, -1.00, -4.20), # From point D to point A.
         pose_from_xytheta(nav, -1.05, -0.50, -4.17),
-        pose_from_xytheta(nav, -1.05, -0.00, -4.17),
-        pose_from_xytheta(nav, -1.05, -0.00, 0.00),  # At point A.
-        pose_from_xytheta(nav, -0.90, -0.00, 0.00),  # From point A to point E.
-        pose_from_xytheta(nav, -0.60, -0.00, 0.00),
-        pose_from_xytheta(nav, -0.20, -0.00, 0.00),  # At point E.
-        pose_from_xytheta(nav, -0.20, -0.00, -1.57), # From point E to point F.
+        pose_from_xytheta(nav, -1.05, -0.10, -4.17),
+        pose_from_xytheta(nav, -1.05, -0.10, 0.00),  # At point A.
+        pose_from_xytheta(nav, -0.90, -0.10, 0.00),  # From point A to point E.
+        pose_from_xytheta(nav, -0.60, -0.10, 0.00),
+        pose_from_xytheta(nav, -0.20, -0.10, 0.00),  # At point E.
+        pose_from_xytheta(nav, -0.20, -0.10, -1.57), # From point E to point F.
         pose_from_xytheta(nav, -0.20, -0.20, -1.57),
         pose_from_xytheta(nav, -0.20, -0.40, -1.57),
         pose_from_xytheta(nav, -0.20, -0.60, -1.57),

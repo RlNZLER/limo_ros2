@@ -1,7 +1,7 @@
 import subprocess
 import time
 
-REAL_WORLD = False
+REAL_WORLD = True
 
 def run_command_in_terminal(command):
     # Open a new terminal and run the specified command in the current directory
