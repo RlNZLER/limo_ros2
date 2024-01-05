@@ -1,4 +1,4 @@
-path: /home/rinzler/Downloads/simple_pothole/data
+path: /home/rinzler/ros2_projects/limo_ros2/src/object_detection/object_detection/data
 train: images/train
 val: images/train
 

@@ -1,6 +1,8 @@
 import subprocess
 import time
 
+REAL_WORLD = False
+
 def run_command_in_terminal(command):
     # Open a new terminal and run the specified command in the current directory
     subprocess.Popen(['gnome-terminal', '--', 'bash', '-c', f'{command}; exec bash'])
@@ -15,7 +17,10 @@ def main():
     time.sleep(3)
 
     # Command 4: launch Gazebo
-    run_command_in_terminal('ros2 launch limo_gazebosim limo_gazebo_diff.launch.py')
+    if REAL_WORLD:
+        run_command_in_terminal('ros2 launch limo_gazebosim limo_gazebo_diff.launch.py world:=src/limo_gazebosim/worlds/potholes.world')
+    else:
+        run_command_in_terminal('ros2 launch limo_gazebosim limo_gazebo_diff.launch.py')
     time.sleep(15)
 
     # Command 5: launch navigation

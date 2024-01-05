@@ -26,8 +26,9 @@ class ObjectDetector(Node):
     detected_potholes = []
     camera_model = None
     image_depth_ros = None
-    YOLOv8n_TRAINED_MODEL = "src/object_detection/object_detection/runs/detect/train2/weights/best.pt"
+    YOLOv8n_TRAINED_MODEL = "src/object_detection/object_detection/runs/detect/train3/weights/best.pt"
     DETECTED_POTHOLE_FILE_PATH = "src/object_detection/data/detected_potholes.txt"
+    model = YOLO(YOLOv8n_TRAINED_MODEL)
 
     # aspect ration between color and depth cameras
     # calculated as (color_horizontal_FOV/color_width) / (depth_horizontal_FOV/depth_width) from the dabai camera parameters
@@ -197,8 +198,8 @@ class ObjectDetector(Node):
 
         # self.publish_status("Object detection started!")
         # Perform YOLO object detection
-        model = YOLO(self.YOLOv8n_TRAINED_MODEL)
-        results = model.predict(source=image_color, save_txt=True, save=False, stream=True)
+
+        results = self.model.predict(source=image_color, save_txt=True, save=False, stream=True)
         
         # Process and print pothole information
         self.process_detected_potholes(results, image_depth, image_color)
