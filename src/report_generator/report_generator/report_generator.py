@@ -13,7 +13,7 @@ import numpy as np
 import cv2
 
 class ReportGenerator(Node):
-    DISTANCE_THRESHOLD = 0.30
+    DISTANCE_THRESHOLD = 0.20
     DETECTED_POTHOLE_FILE_PATH = "src/object_detection/data/detected_potholes.txt"
     FILTERED_FILE_PATH = "src/report_generator/data/filtered_potholes.txt"
     PLOT_FILE_PATH = "src/report_generator/data/filtered_pothole_map.png"
@@ -176,7 +176,7 @@ class ReportGenerator(Node):
         for idx, point in enumerate(self.filtered_data):
             odom_coords = f"Odom Coordinates: ({round(point['odom_coords'].x,3)}, {round(point['odom_coords'].y,3)})"
             map_coords = f"Map Coordinates: ({round(point['x_map'],3)}, {round(point['y_map'],3)})"
-            pothole_size = f"Pothole Size: {point['box_size']}"
+            pothole_size = f"Pothole Size: {round(point['box_size'],3)} sq. meters"
 
             pdf.drawString(120, y_position, f"Pothole {idx + 1}:")
             pdf.drawString(140, y_position - 20, odom_coords)

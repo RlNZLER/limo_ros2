@@ -25,6 +25,7 @@ from ultralytics import YOLO
 class ObjectDetector(Node):
     pothole_counter = 0
     detected_potholes = []
+    DISTANCE_THRESHOLD = 0.60
     camera_model = None
     image_depth_ros = None
     YOLOv8n_TRAINED_MODEL = "src/object_detection/object_detection/runs/detect/train3/weights/best.pt"
@@ -120,23 +121,84 @@ class ObjectDetector(Node):
             self.get_logger().warning(f"Error calculating map coordinates: {str(e)}")
             return None, None       
     
-    def calculate_height_width(self, x_min, x_max, y_min, y_max):
-        transform = self.get_tf_transform('map', 'odom')
-        pos = Pose()
-        pos.position.x = x_min
-        pos.position.y = y_min
-        pos.position.z = 0.0
-        p_min = do_transform_pose(pos, transform)
+    def calculate_pothole_size(self, x_min, x_max, y_min, y_max, depth_image, image_color):
+        depth_coords_min = (
+            depth_image.shape[0] / 2 + (y_min - image_color.shape[0] / 2) * self.color2depth_aspect,
+            depth_image.shape[1] / 2 + (x_min - image_color.shape[1] / 2) * self.color2depth_aspect,
+        )
         
-        pos.position.x = x_max
-        pos.position.y = y_max
-        pos.position.z = 0.0
-        p_max = do_transform_pose(pos, transform)
+        depth_coords_min_clamped = (
+            min(depth_coords_min[0], 479),
+            min(depth_coords_min[1], 479)
+        )
         
-        width = p_max.x - p_min.x
-        height = p_max.y - p_min.y
+        depth_value_min = depth_image[int(depth_coords_min_clamped[0]), int(depth_coords_min_clamped[1])]
+            
+        p_min = self.camera_model.projectPixelTo3dRay((x_min, y_min))
+        p_min = [x / p_min[2] for x in p_min]
+        p_min = [x * depth_value_min for x in p_min]
         
-        return height, width
+        p_min_odom_location = PoseStamped()
+        p_min_odom_location.header.frame_id = "depth_link"
+        p_min_odom_location.pose.orientation.w = 1.0
+        p_min_odom_location.pose.position.x = p_min[0]
+        p_min_odom_location.pose.position.y = p_min[1]
+        p_min_odom_location.pose.position.z = p_min[2]  
+        transform_d_to_o = self.get_tf_transform('odom', 'depth_link')
+        p_min_camera = do_transform_pose(p_min_odom_location.pose, transform_d_to_o)
+        p_min_odom_coords = p_min_camera.position
+        
+        transform_o_to_m = self.get_tf_transform('map', 'odom')
+        p_min_odom = Pose()
+        p_min_odom.position.x = p_min_odom_coords.x
+        p_min_odom.position.y = p_min_odom_coords.y
+        p_min_odom.position.z = p_min_odom_coords.z
+        p_map = do_transform_pose(p_min_odom, transform_o_to_m)
+        p_min_map_x = p_map.position.x
+        p_min_map_y = p_map.position.y
+        
+        
+        depth_coords_max = (
+            depth_image.shape[0] / 2 + (y_max - image_color.shape[0] / 2) * self.color2depth_aspect,
+            depth_image.shape[1] / 2 + (x_max - image_color.shape[1] / 2) * self.color2depth_aspect,
+        )
+        depth_coords_max_clamped = (
+            min(depth_coords_max[0], 479),
+            min(depth_coords_max[1], 479)
+        )
+        
+        depth_value_max = depth_image[int(depth_coords_max_clamped[0]), int(depth_coords_max_clamped[1])]
+        
+        p_max = self.camera_model.projectPixelTo3dRay((x_max, y_max))
+        p_max = [x / p_max[2] for x in p_max]
+        p_max = [x * depth_value_max for x in p_max]
+        
+        p_max_odom_location = PoseStamped()
+        p_max_odom_location.header.frame_id = "depth_link"
+        p_max_odom_location.pose.orientation.w = 1.0
+        p_max_odom_location.pose.position.x = p_max[0]
+        p_max_odom_location.pose.position.y = p_max[1]
+        p_max_odom_location.pose.position.z = p_max[2]  
+        transform_d_to_o = self.get_tf_transform('odom', 'depth_link')
+        p_max_camera = do_transform_pose(p_max_odom_location.pose, transform_d_to_o)
+        p_max_odom_coords = p_max_camera.position
+        
+        transform_o_to_m = self.get_tf_transform('map', 'odom')
+        p_max_odom = Pose()
+        p_max_odom.position.x = p_max_odom_coords.x
+        p_max_odom.position.y = p_max_odom_coords.y
+        p_max_odom.position.z = p_max_odom_coords.z
+        p_map = do_transform_pose(p_max_odom, transform_o_to_m)
+        p_max_map_x = p_map.position.x
+        p_max_map_y = p_map.position.y
+        
+        pothole_height = p_max_map_y - p_min_map_y
+        pothole_width = p_max_map_x - p_min_map_x
+        
+        pothole_size = pothole_height*pothole_width
+        
+        return pothole_height, pothole_width, pothole_size
+
         
     def calculate_pothole_info(self, x_min, y_min, x_max, y_max, depth_image, image_color):
         # Calculate centroid of the bounding box
@@ -151,7 +213,7 @@ class ObjectDetector(Node):
 
         # Get the depth reading at the centroid location
         depth_value = depth_image[int(depth_coords[0]), int(depth_coords[1])]
-
+        
         # Calculate object's 3D location in camera coordinates
         camera_coords = self.camera_model.projectPixelTo3dRay((centroid_x, centroid_y))
         camera_coords = [x / camera_coords[2] for x in camera_coords]
@@ -172,39 +234,7 @@ class ObjectDetector(Node):
         # Calculate map coordinates
         x_map, y_map = self.calculate_map_coordinates(odom_coords)
         
-        # Transform bounding box coordinates from depth link to odom
-        transform_depth_to_odom = self.get_tf_transform('odom', 'depth_link')
-        if transform_depth_to_odom:
-            p_depth = Pose()
-            p_depth.position.x = float(x_min)
-            p_depth.position.y = float(y_min)
-            p_depth.position.z = 0.0
-            p_odom_depth = do_transform_pose(p_depth, transform_depth_to_odom)
-            x_min, y_min = p_odom_depth.position.x, p_odom_depth.position.y
-
-            p_depth.position.x = float(x_max)
-            p_depth.position.y = float(y_max)
-            p_odom_depth = do_transform_pose(p_depth, transform_depth_to_odom)
-            x_max, y_max = p_odom_depth.position.x, p_odom_depth.position.y
-
-            # Transform bounding box coordinates from odom to map
-            transform_odom_to_map = self.get_tf_transform('map', 'odom')
-            if transform_odom_to_map:
-                p_odom = Pose()
-                p_odom.position.x = float(x_min)
-                p_odom.position.y = float(y_min)
-                p_odom.position.z = 0.0
-                p_map_odom = do_transform_pose(p_odom, transform_odom_to_map)
-                x_min, y_min = p_map_odom.position.x, p_map_odom.position.y
-
-                p_odom.position.x = float(x_max)
-                p_odom.position.y = float(y_max)
-                p_map_odom = do_transform_pose(p_odom, transform_odom_to_map)
-                x_max, y_max = p_map_odom.position.x, p_map_odom.position.y
-
-                # Calculate height and width in the real world with respect to the map
-                height_real_world = abs(y_max - y_min)
-                width_real_world = abs(x_max - x_min)
+        height, width, size = self.calculate_pothole_size(x_min, y_min, x_max, y_max, depth_image, image_color)
         
         # publish so we can see that in rviz
         self.object_location_pub.publish(object_location)   
@@ -214,11 +244,12 @@ class ObjectDetector(Node):
             "centroid_y": centroid_y,
             "depth_value": depth_value,
             "odom_coords": odom_coords,
+            "depth_value": depth_value,
             "x_map": x_map,
             "y_map": y_map,
-            "height": height_real_world,
-            "width": width_real_world,
-            "box_size": height_real_world*width_real_world
+            "height": height,
+            "width": width,
+            "box_size": abs(size)
         }
         
     def process_detected_potholes(self, results, image_depth, image_color):
@@ -232,29 +263,32 @@ class ObjectDetector(Node):
             for pred in result.boxes.xyxy:
                 x_min, y_min, x_max, y_max = map(int, pred[:4])
                 
-                # Draw bounding box on the image
-                cv2.rectangle(image_color, (x_min, y_min), (x_max, y_max), (0, 255, 0), 2)
-
-                # # Display the image with bounding boxes
-                # cv2.imshow("YOLO Object Detection", image_color)
-                # cv2.waitKey(1)
-                
-                # Display image detection on Rviz.
-                image_with_boxes_msg = self.bridge.cv2_to_imgmsg(image_color, encoding="bgr8")
-                self.image_with_boxes_pub.publish(image_with_boxes_msg)
-                
                 # Calculate pothole information
                 pothole_info = self.calculate_pothole_info(x_min, y_min, x_max, y_max, image_depth, image_color)
-                self.detected_potholes.append(pothole_info)
+                
+                if pothole_info["depth_value"] < self.DISTANCE_THRESHOLD:
+                    # Draw bounding box on the image
+                    cv2.rectangle(image_color, (x_min, y_min), (x_max, y_max), (0, 255, 0), 2)
 
-                # Increment the pothole counter
-                self.pothole_counter += 1
-                
-                # Publish marker for each pothole
-                self.publish_marker(pothole_info)
-                
-                # Print pothole information
-                print(f"Pothole {self.pothole_counter} - Odom Coordinates: {pothole_info['odom_coords']}, Size: {pothole_info['box_size']}")
+                    # # Display the image with bounding boxes
+                    # cv2.imshow("YOLO Object Detection", image_color)
+                    # cv2.waitKey(1)
+                    
+                    # Display image detection on Rviz.
+                    image_with_boxes_msg = self.bridge.cv2_to_imgmsg(image_color, encoding="bgr8")
+                    self.image_with_boxes_pub.publish(image_with_boxes_msg)
+                    
+                    # Save the pothole information to the detected pothole list.
+                    self.detected_potholes.append(pothole_info)
+
+                    # Increment the pothole counter
+                    self.pothole_counter += 1
+                    
+                    # Publish marker for each pothole
+                    self.publish_marker(pothole_info)
+                    
+                    # Print pothole information
+                    print(f"\nPothole {self.pothole_counter} - \nOdom Coordinates: {pothole_info['odom_coords']}, \nSize: {pothole_info['box_size']} \nDepth Value: {pothole_info['depth_value']}")
 
         if self.stop_detection_flag:
             self.publish_status("Object detection stopped!")

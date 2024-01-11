@@ -34,7 +34,6 @@ def main():
     
     # Command 7: run waypoint following
     run_command_in_terminal('ros2 run waypoint_follower waypoint_follower')
-    time.sleep(30)
     
 if __name__ == "__main__":
     main()
