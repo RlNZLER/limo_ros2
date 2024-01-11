@@ -1,17 +1,50 @@
+"""
+Pothole Report Generator Node
+
+This code represents a ROS (Robot Operating System) implementation for a Pothole Detection and Reporting System.
+The system includes ReportGenerator for filtering, mapping, and generating reports.
+
+ReportGenerator:
+- Subscribes to the status of the ObjectDetector.
+- Filters detected potholes based on specific conditions.
+- Draws markers on a map and generates a plot of filtered potholes.
+- Creates a PDF report with pothole details and visualizations.
+
+Author: Amel Varghese
+Date: 11/01/2024
+Github: https://github.com/RlNZLER/limo_ros2.git
+
+"""
+
+
+# ROS imports.
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
 import geometry_msgs.msg
+
+# Mathematical operations.
 from math import sqrt
+
+# Plotting and visualization.
 import matplotlib.pyplot as plt
+
+# PDF generation.
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
+
+# Image processing.
 from PIL import Image
 from io import BytesIO
+
+# External processes and utilities.
 import subprocess
+
+# Numerical and image processing libraries.
 import numpy as np
 import cv2
 
+# Node responsible for filtering, mapping, and generating reports based on detected potholes.
 class ReportGenerator(Node):
     DISTANCE_THRESHOLD = 0.20
     DETECTED_POTHOLE_FILE_PATH = "src/object_detection/data/detected_potholes.txt"
@@ -24,6 +57,7 @@ class ReportGenerator(Node):
     
     
     def __init__(self):
+        # Initializes the ReportGenerator node.
         super().__init__('report_generator')
         # Load map image
         self.map = cv2.imread(self.MAP_FILE_PATH, cv2.IMREAD_GRAYSCALE)
@@ -35,6 +69,7 @@ class ReportGenerator(Node):
         self.pothole_map = np.zeros(self.MAP_DIMENSIONS, dtype=np.uint8)
         self.object_detection_status_sub = self.create_subscription(String, '/object_detection/status', self.report_generator_callback, 10)
         
+    # Filters detected potholes based on specific conditions.
     def filter_points(self, input_list):
 
         for point in input_list:
@@ -57,6 +92,7 @@ class ReportGenerator(Node):
                 if not is_duplicate:
                     self.filtered_data.append(point_copy)
 
+    # Writes filtered pothole data to a file.
     def write_to_file(self):
         try:
             with open(self.FILTERED_FILE_PATH, 'w') as file:
@@ -67,6 +103,7 @@ class ReportGenerator(Node):
         except Exception as e:
             print(f"Error writing to file: {e}")
 
+    # Reads detected pothole data from a file. Returns: List of detected potholes with coordinates.
     def read_from_file(self):
         data = []
 
@@ -81,12 +118,14 @@ class ReportGenerator(Node):
 
         return data
     
+    # Converts world coordinates to pixel coordinates.
     def world_to_pixel(self, x_map, y_map):
         # Convert world coordinates to pixel coordinates
         pixel_x = int((x_map - self.origin[0]) / self.resolution)
         pixel_y = int((y_map - self.origin[1]) / self.resolution)
         return pixel_x, pixel_y
     
+    # Draws a marker on the map at specified coordinates.
     def draw_marker(self, x_map, y_map, marker_size=1):
         # Convert world coordinates to pixel coordinates
         pixel_coords = self.world_to_pixel(x_map*-1, y_map)
@@ -98,10 +137,12 @@ class ReportGenerator(Node):
         # Draw a filled circle around the specified pixel
         cv2.circle(self.map, (pixel_x, pixel_y), marker_size, 0, thickness=-1)
 
+    # Saves the map image with markers.
     def save_map_with_markers(self):
         rotated_image = cv2.rotate(self.map, cv2.ROTATE_180)
         cv2.imwrite(self.POTHOLE_MAP_PATH, rotated_image)
         
+    # Plots filtered pothole odom coordinates in the X-Y plane.
     def plot_points(self, input_list):
         x_values = [point['odom_coords'].x for point in input_list]
         y_values = [point['odom_coords'].y for point in input_list]
@@ -114,6 +155,7 @@ class ReportGenerator(Node):
         plt.grid(True)
         plt.show()
 
+    # Plots map coordinates in the X-Y plane.
     def plot_map_coordinates(self, input_list):
         x_values = [point['odom_coords'].x for point in input_list]
         y_values = [point['odom_coords'].y for point in input_list]
@@ -126,6 +168,7 @@ class ReportGenerator(Node):
         plt.grid(True)
         plt.show()
         
+    # Plots both odom and map coordinates in the X-Y plane.
     def plot_both(self, save_path=None):
         fig, axs = plt.subplots(1, 2, figsize=(12, 5))
 
@@ -156,7 +199,7 @@ class ReportGenerator(Node):
         plt.tight_layout()
         plt.savefig(self.PLOT_FILE_PATH)
 
-        
+    # Generates a PDF report with pothole details and visualizations.
     def generate_pdf_report(self):
         # Create PDF
         pdf_buffer = BytesIO()
@@ -170,8 +213,8 @@ class ReportGenerator(Node):
         # Iterate over filtered data
         pdf.drawString(100, 710, "Pothole Details:")
         y_position = 690
-        page_height = 750  # Initial page height, adjust as needed
-        potholes_per_page = 7  # Adjust as needed
+        page_height = 750
+        potholes_per_page = 7
 
         for idx, point in enumerate(self.filtered_data):
             odom_coords = f"Odom Coordinates: ({round(point['odom_coords'].x,3)}, {round(point['odom_coords'].y,3)})"
@@ -188,7 +231,7 @@ class ReportGenerator(Node):
             if (idx + 1) % potholes_per_page == 0 and idx + 1 != len(self.filtered_data):
                 # Create a new page
                 pdf.showPage()
-                page_height = 750  # Reset page height for the new page
+                page_height = 750
                 y_position = page_height
 
         # Open the image using PIL
@@ -234,7 +277,9 @@ class ReportGenerator(Node):
 
         return pdf_buffer
     
+    # Callback function to check if the object detection node is stopped to start report generation.
     def report_generator_callback(self, msg):
+        # Check if the object detection node is stopped.
         if not msg.data == "Object detection node stopped!":
             return
 
@@ -263,15 +308,16 @@ class ReportGenerator(Node):
         # Open the generated "Report Summary.pdf".
         subprocess.run(["xdg-open", "Report Summary.pdf"])
 
+# Main function to initialize and run the report generator node.
 def main():
-    # --- Init
+    # --- Initialize ROS
     rclpy.init()
     report = ReportGenerator()
     
     rclpy.spin(report)
     report.destroy_node()
 
-    # --- Shut down
+    # --- Shut down ROS
     rclpy.shutdown()
 
 if __name__ == "__main__":
