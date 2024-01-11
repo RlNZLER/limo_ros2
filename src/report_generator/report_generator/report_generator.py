@@ -9,18 +9,32 @@ from reportlab.pdfgen import canvas
 from PIL import Image
 from io import BytesIO
 import subprocess
+import numpy as np
+import cv2
 
 class ReportGenerator(Node):
-    DISTANCE_THRESHOLD = 0.3
+    DISTANCE_THRESHOLD = 0.30
     DETECTED_POTHOLE_FILE_PATH = "src/object_detection/data/detected_potholes.txt"
     FILTERED_FILE_PATH = "src/report_generator/data/filtered_potholes.txt"
     PLOT_FILE_PATH = "src/report_generator/data/filtered_pothole_map.png"
+    MAP_DIMENSIONS = (500, 500)  # Adjust as needed
+    MAP_FILE_PATH = "src/report_generator/report_generator/potholes_20mm.pgm"
+    POTHOLE_MAP_PATH = "src/report_generator/data/pothole_map.pgm"
     filtered_data = []
+    
     
     def __init__(self):
         super().__init__('report_generator')
+        # Load map image
+        self.map = cv2.imread(self.MAP_FILE_PATH, cv2.IMREAD_GRAYSCALE)
+
+        # Map metadata
+        self.resolution = 0.02
+        self.origin = np.array([-1.51, -1.32, 0])
+        self.origin_pixel = self.world_to_pixel(self.origin[0],self.origin[1])
+        self.pothole_map = np.zeros(self.MAP_DIMENSIONS, dtype=np.uint8)
         self.object_detection_status_sub = self.create_subscription(String, '/object_detection/status', self.report_generator_callback, 10)
-            
+        
     def filter_points(self, input_list):
 
         for point in input_list:
@@ -66,7 +80,28 @@ class ReportGenerator(Node):
             print(f"Error reading from file: {e}")
 
         return data
+    
+    def world_to_pixel(self, x_map, y_map):
+        # Convert world coordinates to pixel coordinates
+        pixel_x = int((x_map - self.origin[0]) / self.resolution)
+        pixel_y = int((y_map - self.origin[1]) / self.resolution)
+        return pixel_x, pixel_y
+    
+    def draw_marker(self, x_map, y_map, marker_size=1):
+        # Convert world coordinates to pixel coordinates
+        pixel_coords = self.world_to_pixel(x_map*-1, y_map)
 
+        # Ensure the pixel coordinates are within the map dimensions
+        pixel_x = max(0, min(pixel_coords[0], self.map.shape[1] - 1))
+        pixel_y = max(0, min(pixel_coords[1], self.map.shape[0] - 1))
+
+        # Draw a filled circle around the specified pixel
+        cv2.circle(self.map, (pixel_x, pixel_y), marker_size, 0, thickness=-1)
+
+    def save_map_with_markers(self):
+        rotated_image = cv2.rotate(self.map, cv2.ROTATE_180)
+        cv2.imwrite(self.POTHOLE_MAP_PATH, rotated_image)
+        
     def plot_points(self, input_list):
         x_values = [point['odom_coords'].x for point in input_list]
         y_values = [point['odom_coords'].y for point in input_list]
@@ -139,8 +174,8 @@ class ReportGenerator(Node):
         potholes_per_page = 7  # Adjust as needed
 
         for idx, point in enumerate(self.filtered_data):
-            odom_coords = f"Odom Coordinates: ({point['odom_coords'].x}, {point['odom_coords'].y})"
-            map_coords = f"Map Coordinates: ({point['x_map']}, {point['y_map']})"
+            odom_coords = f"Odom Coordinates: ({round(point['odom_coords'].x,3)}, {round(point['odom_coords'].y,3)})"
+            map_coords = f"Map Coordinates: ({round(point['x_map'],3)}, {round(point['y_map'],3)})"
             pothole_size = f"Pothole Size: {point['box_size']}"
 
             pdf.drawString(120, y_position, f"Pothole {idx + 1}:")
@@ -159,27 +194,40 @@ class ReportGenerator(Node):
         # Open the image using PIL
         img = Image.open(self.PLOT_FILE_PATH)
 
-        # Calculate scaling factors to fit the image within the page
+        # Calculate scaling factors to fit the image within the page.
         image_width, image_height = img.size
         max_width, max_height = letter
         scale_x = max_width / image_width
         scale_y = max_height / image_height
         scale = min(scale_x, scale_y) - 0.05
 
-        # Calculate the new dimensions for the scaled image
+        # Calculate the new dimensions for the scaled image.
         new_width = image_width * scale
         new_height = image_height * scale
 
-        # Calculate the position to center the scaled image on a new page
+        # Calculate the position to center the scaled image on a new page.
         x_position = (max_width - new_width) / 2
         y_position = (max_height - new_height) / 2
 
-        # Draw the heading for the page with the image
+        # Draw the heading for the page with the plots.
         pdf.showPage()
-        pdf.drawString(100, max_height - 50, "Pothole Position on Map")
+        pdf.drawString(100, max_height - 50, "Pothole Position Plots")
 
-        # Draw the scaled image on a new page
-        pdf.drawInlineImage(img, x_position, y_position, width=new_width, height=new_height)
+        # Calculate the position for the first half of the page.
+        plots_y_position = max_height - 300
+
+        # Draw the plots on the first half of the page.
+        pdf.drawInlineImage(Image.open(self.PLOT_FILE_PATH), x_position, plots_y_position, width=new_width, height=new_height)
+
+        # Draw the heading for the map section.
+        pdf.drawString(100, max_height - 350, "Pothole Position on Map")
+
+        # Calculate the position for the second half of the page.
+        map_y_position = max_height - 600
+
+        # Draw the map on the second half of the page.
+        map_image_path = "src/report_generator/data/pothole_map.pgm"
+        pdf.drawInlineImage(Image.open(map_image_path), x_position, map_y_position, width=new_width, height=new_height)
 
         pdf.save()
         pdf_buffer.seek(0)
@@ -190,23 +238,29 @@ class ReportGenerator(Node):
         if not msg.data == "Object detection node stopped!":
             return
 
-          # Adjust as needed
+        # Read the data from the object detection node.
         input_data = self.read_from_file()  
         self.filter_points(input_data)
         self.write_to_file()
         
-        plot_file_path = "src/report_generator/data/filtered_pothole_map.png"
+        # Plot both odom coordinates and map coordinates.
         self.plot_both()
         # self.plot_points(filtered_data)
         # self.plot_map_coordinates(filtered_data)
-
+        
+        # Iterate through filtered data and draw markers on the PGM map
+        for point in self.filtered_data:
+            self.draw_marker(point['x_map'], point['y_map'])
+            
+        self.save_map_with_markers()
         # Generate PDF report
         pdf_report = self.generate_pdf_report()
 
-        # Now, you can save the PDF to a file or send it through ROS, depending on your needs.
+        # Save the PDF to a file.
         with open("Report Summary.pdf", "wb") as f:
             f.write(pdf_report.read())
-            
+        
+        # Open the generated "Report Summary.pdf".
         subprocess.run(["xdg-open", "Report Summary.pdf"])
 
 def main():

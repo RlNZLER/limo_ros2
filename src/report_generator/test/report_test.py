@@ -1,59 +1,50 @@
-import geometry_msgs.msg
-from reportlab.lib.pagesizes import letter
-from reportlab.pdfgen import canvas
-from PIL import Image
-from io import BytesIO
+import cv2
+import numpy as np
 
-def generate_pdf_report(filtered_data, image_path):
-    # Create PDF
-    pdf_buffer = BytesIO()
-    pdf = canvas.Canvas(pdf_buffer, pagesize=letter)
-    
-    # Write report content
-    pdf.setFont("Helvetica", 12)
-    pdf.drawString(100, 750, "Report Summary")
-    pdf.drawString(100, 730, f"Number of Potholes: {len(filtered_data)}")
+class MarkerOverlay:
+    def __init__(self, map_info):
+        # Load map image
+        self.map = cv2.imread(map_info["image"], cv2.IMREAD_GRAYSCALE)
 
-    # Iterate over filtered data
-    pdf.drawString(100, 710, "Pothole Details:")
-    y_position = 690
-    for idx, point in enumerate(filtered_data):
-        odom_coords = f"Odom Coordinates: ({point['odom_coords'].x}, {point['odom_coords'].y})"
-        map_coords = f"Map Coordinates: ({point['x_map']}, {point['y_map']})"
-        pothole_size = f"Pothole Size: {point['box_size']}"
+        # Map metadata
+        self.resolution = map_info["resolution"]
+        self.origin = np.array(map_info["origin"])
+        self.origin_pixel = self.world_to_pixel(self.origin)
 
-        pdf.drawString(120, y_position, f"Pothole {idx + 1}:")
-        pdf.drawString(140, y_position - 20, odom_coords)
-        pdf.drawString(140, y_position - 40, map_coords)
-        pdf.drawString(140, y_position - 60, pothole_size)
+    def world_to_pixel(self, world_coords):
+        # Convert world coordinates to pixel coordinates
+        pixel_x = int((world_coords[0] - self.origin[0]) / self.resolution)
+        pixel_y = int((world_coords[1] - self.origin[1]) / self.resolution)
+        return pixel_x, pixel_y
 
-        y_position -= 80
+    def draw_marker(self, world_coords, marker_size=1):
+        # Convert world coordinates to pixel coordinates
+        pixel_coords = self.world_to_pixel(world_coords)
 
-    # Open the image using PIL
-    img = Image.open(image_path)
+        # Ensure the pixel coordinates are within the map dimensions
+        pixel_x = max(0, min(pixel_coords[0], self.map.shape[1] - 1))
+        pixel_y = max(0, min(pixel_coords[1], self.map.shape[0] - 1))
 
-    # Draw the image using drawInlineImage
-    pdf.drawString(100, y_position, "Generated Plot:")
-    pdf.drawInlineImage(img, 100, y_position - 20, width=400, height=300)
+        # Draw a filled circle around the specified pixel
+        cv2.circle(self.map, (pixel_x, pixel_y), marker_size, 0, thickness=-1)
 
-    pdf.save()
-    pdf_buffer.seek(0)
+    def save_map_with_markers(self, output_file_path):
+        cv2.imwrite(output_file_path, self.map)
 
-    return pdf_buffer
+# Example usage
+map_info = {
+    "image": "src/limo_navigation/maps/potholes_20mm.pgm",
+    "resolution": 0.02,
+    "origin": [-1.51, -1.32, 0],
+}
 
-filtered_data = []
-file_path = "src/object_detection/object_detection/test/sorted_potholes.txt"
-with open(file_path, 'r') as file:
-    for line in file:
-        point = eval(line.strip())
-        filtered_data.append(point)
+output_file_path = "src/report_generator/data/pothole_map_test.pgm"
 
-# Path to the static image
-image_path = "src/report_generator/data/filtered_pothole_map.png"
+marker_overlay = MarkerOverlay(map_info)
 
-# Generate PDF report
-pdf_report = generate_pdf_report(filtered_data, image_path)
+# Add markers to the map (replace these coordinates with your desired marker locations)
+marker_overlay.draw_marker([0.0, 0.0, 0])
+marker_overlay.draw_marker([0.5, 0.5, 0])
 
-# Now, you can save the PDF to a file or send it through ROS, depending on your needs.
-with open("Report Summary.pdf", "wb") as f:
-    f.write(pdf_report.read())
+# Save the map with markers
+marker_overlay.save_map_with_markers(output_file_path)

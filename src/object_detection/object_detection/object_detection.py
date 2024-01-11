@@ -12,8 +12,9 @@ from tf2_ros import Buffer, TransformListener
 
 # ROS Messages
 from std_msgs.msg import String
+from visualization_msgs.msg import Marker
 from sensor_msgs.msg import Image, CameraInfo
-from geometry_msgs.msg import PoseStamped, Pose
+from geometry_msgs.msg import PoseStamped, Pose, Point
 from cv_bridge import CvBridge, CvBridgeError
 from tf2_geometry_msgs import do_transform_pose
 
@@ -48,6 +49,7 @@ class ObjectDetector(Node):
         self.object_detection_status_pub = self.create_publisher(String, '/object_detection/status', 10)
         self.object_location_pub = self.create_publisher(PoseStamped, '/object_detection/location', 10)
         self.image_with_boxes_pub = self.create_publisher(Image, '/object_detection/yolo_detected_image', 10)
+        self.marker_pub = self.create_publisher(Marker, '/object_detection/markers', 10)
         
         self.tf_buffer = Buffer()
         self.tf_listener = TransformListener(self.tf_buffer, self)
@@ -56,6 +58,7 @@ class ObjectDetector(Node):
     def waypoint_follower_status_callback(self, msg):
         if msg.data == "Reached my origin!":
             self.start_detection_flag = True
+            self.publish_status("Starting object detection...")
             
     def task_completed_callback(self, msg):
         if msg.data == "Task Completed!":
@@ -75,6 +78,31 @@ class ObjectDetector(Node):
         except Exception as e:
             self.get_logger().warning(f"Failed to lookup transform: {str(e)}")
             return None
+        
+    def publish_marker(self, pothole_info):
+        marker = Marker()
+        marker.header.frame_id = "map"  # Use the odom frame
+        marker.header.stamp = self.get_clock().now().to_msg()
+        marker.ns = "potholes"
+        marker.id = self.pothole_counter
+        marker.type = Marker.SPHERE  # You can change the marker type as needed
+        marker.action = Marker.ADD
+        marker.pose.position.x = pothole_info['x_map']
+        marker.pose.position.y = pothole_info['y_map']
+        marker.pose.position.z = 0.0
+        marker.pose.orientation.w = 1.0
+        marker.scale.x = 0.05 
+        marker.scale.y = 0.05
+        marker.scale.z = 0.05
+        marker.color.a = 1.0
+        marker.color.r = 1.0
+        marker.color.g = 0.0
+        marker.color.b = 0.0
+
+        # Publish the marker
+        self.marker_pub.publish(marker)
+        
+        
     def calculate_map_coordinates(self, odom_coords):
         try:
             transform = self.get_tf_transform('map', 'odom')
@@ -91,6 +119,24 @@ class ObjectDetector(Node):
         except Exception as e:
             self.get_logger().warning(f"Error calculating map coordinates: {str(e)}")
             return None, None       
+    
+    def calculate_height_width(self, x_min, x_max, y_min, y_max):
+        transform = self.get_tf_transform('map', 'odom')
+        pos = Pose()
+        pos.position.x = x_min
+        pos.position.y = y_min
+        pos.position.z = 0.0
+        p_min = do_transform_pose(pos, transform)
+        
+        pos.position.x = x_max
+        pos.position.y = y_max
+        pos.position.z = 0.0
+        p_max = do_transform_pose(pos, transform)
+        
+        width = p_max.x - p_min.x
+        height = p_max.y - p_min.y
+        
+        return height, width
         
     def calculate_pothole_info(self, x_min, y_min, x_max, y_max, depth_image, image_color):
         # Calculate centroid of the bounding box
@@ -118,13 +164,47 @@ class ObjectDetector(Node):
         object_location.pose.position.y = camera_coords[1]
         object_location.pose.position.z = camera_coords[2]     
 
-        # print out the coordinates in the odom frame
-        transform = self.get_tf_transform('depth_link', 'odom')
+        # Print out the coordinates in the odom frame
+        transform = self.get_tf_transform('odom', 'depth_link')
         p_camera = do_transform_pose(object_location.pose, transform)
         
         odom_coords = p_camera.position
         # Calculate map coordinates
         x_map, y_map = self.calculate_map_coordinates(odom_coords)
+        
+        # Transform bounding box coordinates from depth link to odom
+        transform_depth_to_odom = self.get_tf_transform('odom', 'depth_link')
+        if transform_depth_to_odom:
+            p_depth = Pose()
+            p_depth.position.x = float(x_min)
+            p_depth.position.y = float(y_min)
+            p_depth.position.z = 0.0
+            p_odom_depth = do_transform_pose(p_depth, transform_depth_to_odom)
+            x_min, y_min = p_odom_depth.position.x, p_odom_depth.position.y
+
+            p_depth.position.x = float(x_max)
+            p_depth.position.y = float(y_max)
+            p_odom_depth = do_transform_pose(p_depth, transform_depth_to_odom)
+            x_max, y_max = p_odom_depth.position.x, p_odom_depth.position.y
+
+            # Transform bounding box coordinates from odom to map
+            transform_odom_to_map = self.get_tf_transform('map', 'odom')
+            if transform_odom_to_map:
+                p_odom = Pose()
+                p_odom.position.x = float(x_min)
+                p_odom.position.y = float(y_min)
+                p_odom.position.z = 0.0
+                p_map_odom = do_transform_pose(p_odom, transform_odom_to_map)
+                x_min, y_min = p_map_odom.position.x, p_map_odom.position.y
+
+                p_odom.position.x = float(x_max)
+                p_odom.position.y = float(y_max)
+                p_map_odom = do_transform_pose(p_odom, transform_odom_to_map)
+                x_max, y_max = p_map_odom.position.x, p_map_odom.position.y
+
+                # Calculate height and width in the real world with respect to the map
+                height_real_world = abs(y_max - y_min)
+                width_real_world = abs(x_max - x_min)
         
         # publish so we can see that in rviz
         self.object_location_pub.publish(object_location)   
@@ -136,7 +216,9 @@ class ObjectDetector(Node):
             "odom_coords": odom_coords,
             "x_map": x_map,
             "y_map": y_map,
-            "box_size": (x_max - x_min) * (y_max - y_min),
+            "height": height_real_world,
+            "width": width_real_world,
+            "box_size": height_real_world*width_real_world
         }
         
     def process_detected_potholes(self, results, image_depth, image_color):
@@ -157,6 +239,7 @@ class ObjectDetector(Node):
                 # cv2.imshow("YOLO Object Detection", image_color)
                 # cv2.waitKey(1)
                 
+                # Display image detection on Rviz.
                 image_with_boxes_msg = self.bridge.cv2_to_imgmsg(image_color, encoding="bgr8")
                 self.image_with_boxes_pub.publish(image_with_boxes_msg)
                 
@@ -166,6 +249,9 @@ class ObjectDetector(Node):
 
                 # Increment the pothole counter
                 self.pothole_counter += 1
+                
+                # Publish marker for each pothole
+                self.publish_marker(pothole_info)
                 
                 # Print pothole information
                 print(f"Pothole {self.pothole_counter} - Odom Coordinates: {pothole_info['odom_coords']}, Size: {pothole_info['box_size']}")

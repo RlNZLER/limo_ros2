@@ -397,6 +397,19 @@ Visualization Manager:
         Reliability Policy: Reliable
         Value: /object_detection/yolo_detected_image
       Value: true
+    - Class: rviz_default_plugins/Marker
+      Enabled: true
+      Name: Marker
+      Namespaces:
+        {}
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /object_detection/markers
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48

@@ -1,8 +1,7 @@
 import subprocess
 import time
 
-REAL_WORLD = True
-
+REAL_WORLD = False
 def run_command_in_terminal(command):
     # Open a new terminal and run the specified command in the current directory
     subprocess.Popen(['gnome-terminal', '--', 'bash', '-c', f'{command}; exec bash'])
