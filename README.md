@@ -1,11 +1,30 @@
-# LIMO ROS2
+# Limo Robot - Waypoint Following, Object Detection, and Report Generation
 
-This repository contains code for **ROS2 development with the LIMO robot**. Please note that:
+## Overview
 
-* If you're new to the LIMO robot platform, it's highly recommended that you read [LIMO Usage and Development Manual](https://github.com/agilexrobotics/limo-doc/blob/master/Limo%20user%20manual(EN).md) and get yourself familiar with basic operations of the robot first. 
-* If you're not familiar with ROS2, you can refer to the [ROS2 Documentation](https://docs.ros.org/en/humble/index.html) to learn more about ROS2 concepts. 
+This project focuses on implementing a limo robot capable of waypoint following, object detection, and generating reports based on the collected data. The robot utilizes advanced algorithms to navigate through predefined waypoints, detect objects in its environment, and produce insightful reports.
 
-Since the onboard computer equipped on the LIMO robot is Nvidia Jetson Nano which only works with Jetpack v4.x (Ubuntu 18.04), there is no easy way to do native development with an active ROS2 LTS release on the robot ([REP2000](https://www.ros.org/reps/rep-2000.html)). Thus the packages within this repository are developed and only tested in a ROS Humble Docker container (docker image: westonrobot/limo_ros:humble).
+## Features
+
+1. **Waypoint Following:**
+   - The limo robot autonomously follows a predefined set of waypoints.
+   - Navigation algorithms ensure efficient and safe movement between waypoints.
+
+2. **Object Detection:**
+   - Utilizes computer vision techniques (YOLOv8n) to detect and identify objects in the robot's surroundings.
+   - Object detection is performed in real-time during the robot's operation.
+
+3. **Report Generation:**
+   - Gathers data during navigation and object detection processes.
+   - Generates comprehensive report based on the collected and filtered data.
+   - Report include pothole information such as number of potholes, pothole odom coordinates, map coordinates, size and a map showing the location of each pothole.
+
+## Run
+```bash
+$ cd limo_ros2
+$ python3 limo_launch.py
+```
+You can change the real-pothole world simulation and simple-pothole world simulation by changing the variable "REAL_WORLD" in the limo_launch.py file.
 
 ## Changelog
 
