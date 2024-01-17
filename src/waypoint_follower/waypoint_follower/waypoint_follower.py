@@ -207,9 +207,10 @@ def main():
     if reached_my_origin:
         task_completed = follow_waypoints(status, nav)
         print ("Task Completed!")
-    elif not reached_my_origin or not task_completed:
+    elif not reached_my_origin:
         print ("Task failed!")
-    
+    if not task_completed:
+        print ("Task failed!")
     rclpy.spin(status)
     status.destroy_node()
 
